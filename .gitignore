@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# My executables
+cub3D
+
+# Code
+.vscode
