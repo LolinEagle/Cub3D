@@ -25,10 +25,8 @@
 # define DOWN 65364
 # define RIGHT 65363
 
-# include "../_libft/libft.h"
-# include "../_minilibx-linux/mlx.h"
-// # include <libft.h>
-// # include <mlx.h>
+# include <libft.h>
+# include <mlx.h>
 # include <fcntl.h>	// open
 # include <unistd.h>// close, read, write
 # include <stdio.h>	// printf, perror
