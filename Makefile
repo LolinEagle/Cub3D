@@ -63,4 +63,3 @@ ${NAME}:${OBJ_DIRS} ${OBJ}
 .PHONY:all clean fclean re bonus run debug
 
 -include ${DEP}
-
