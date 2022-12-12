@@ -13,8 +13,6 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# define FALSE 0
-# define TRUE 1
 # define ESC 65307
 # define W 119
 # define A 97
@@ -27,11 +25,12 @@
 
 # include <libft.h>
 # include <mlx.h>
-# include <fcntl.h>	// open
-# include <unistd.h>// close, read, write
-# include <stdio.h>	// printf, perror
-# include <stdlib.h>// malloc, free, exit
-# include <string.h>// strerror
+# include <stdbool.h>	// bool, true, false
+# include <fcntl.h>		// open
+# include <unistd.h>	// close, read, write
+# include <stdio.h>		// printf, perror
+# include <stdlib.h>	// malloc, free, exit
+# include <string.h>	// strerror
 # include <math.h>
 
 typedef struct s_cub3d
@@ -41,7 +40,22 @@ typedef struct s_cub3d
 }	t_cub3d;
 
 /* ************************************************************************** */
-/*   main.c                                                     0 functions   */
+/*   cub3d.c                                                    5 functions   */
+/* ************************************************************************** */
+int		putstr_out(char *str);
+int		putstr_err(char *str);
+int		close_cub3d(void *mlx);
+int		deal_key(int key, t_cub3d *cub3d);
+void	ft_cub3d(t_cub3d *cub3d);
+
+/* ************************************************************************** */
+/*   parsing.c                                                  2 functions   */
+/* ************************************************************************** */
+bool	iscub(char *av);
+void	parsing(int ac, char **av, char **env);
+
+/* ************************************************************************** */
+/*   main.c                                                     1 functions   */
 /* ************************************************************************** */
 
 #endif
