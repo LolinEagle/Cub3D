@@ -12,23 +12,7 @@
 
 #include <cub3D.h>
 
-int	putstr_out(char *str)
-{
-	if (str == NULL)
-		return (0);
-	write(1, str, ft_strlen(str));
-	return (0);
-}
-
-int	putstr_err(char *str)
-{
-	if (str == NULL)
-		return (1);
-	write(2, str, ft_strlen(str));
-	return (1);
-}
-
-int	close_cub3d(void *mlx)
+int	deal_close(void *mlx)
 {
 	mlx_loop_end(mlx);
 	return (0);
@@ -41,12 +25,18 @@ int	deal_key(int key, t_cub3d *cub3d)
 	return (0);
 }
 
+int	deal_loop(t_cub3d *cub3d)
+{
+	(void)cub3d;
+	return (0);
+}
+
+// mlx_mouse_hook(cub3d->win, deal_mouse, cub3d);
+// mlx_expose_hook(cub3d->win, deal_expose, cub3d);
 void	ft_cub3d(t_cub3d *cub3d)
 {
-	mlx_hook(cub3d->win, 17, 0, close_cub3d, cub3d->mlx);
+	mlx_hook(cub3d->win, 17, 0, deal_close, cub3d->mlx);
 	mlx_key_hook(cub3d->win, deal_key, cub3d);
+	mlx_loop_hook(cub3d->mlx, deal_loop, cub3d);
 	mlx_loop(cub3d->mlx);
-	mlx_destroy_window(cub3d->mlx, cub3d->win);
-	mlx_destroy_display(cub3d->mlx);
-	free(cub3d->mlx);
 }

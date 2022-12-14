@@ -22,6 +22,9 @@
 # define LEFT 65361
 # define DOWN 65364
 # define RIGHT 65363
+# define NAME "Cub3D"
+# define WEIGHT 1920
+# define HEIGHT 1080
 
 # include <libft.h>
 # include <mlx.h>
@@ -37,22 +40,45 @@ typedef struct s_cub3d
 {
 	void	*mlx;
 	void	*win;
+	int		weight;
+	int		height;
+	void	*north;
+	void	*south;
+	void	*west;
+	void	*east;
+	void	*ceiling;
+	void	*floor;
+	char	**map;
 }	t_cub3d;
 
 /* ************************************************************************** */
-/*   cub3d.c                                                    5 functions   */
+/*   cub3d.c                                                    4 functions   */
 /* ************************************************************************** */
-int		putstr_out(char *str);
-int		putstr_err(char *str);
-int		close_cub3d(void *mlx);
+int		deal_close(void *mlx);
 int		deal_key(int key, t_cub3d *cub3d);
+int		deal_loop(t_cub3d *cub3d);
 void	ft_cub3d(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   parsing.c                                                  2 functions   */
+/*   free.c                                                     2 functions   */
+/* ************************************************************************** */
+int		free_return(t_cub3d *cub3d);
+void	free_exit(t_cub3d *cub3d);
+
+/* ************************************************************************** */
+/*   parsing.c                                                  4 functions   */
 /* ************************************************************************** */
 bool	iscub(char *av);
+int		create_rgb(int r, int g, int b);
 void	parsing(int ac, char **av, char **env);
+void	init(t_cub3d *cub3d, char *av);
+
+/* ************************************************************************** */
+/*   utils.c                                                    3 functions   */
+/* ************************************************************************** */
+int		putstr_out(char *str);
+int		putstr_err(char *str);
+bool	char_in_string(char c, char *str);
 
 /* ************************************************************************** */
 /*   main.c                                                     1 functions   */

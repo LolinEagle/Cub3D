@@ -1,23 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frrusso <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 13:38:01 by frrusso           #+#    #+#             */
-/*   Updated: 2022/12/08 13:38:03 by frrusso          ###   ########.fr       */
+/*   Created: 2022/12/14 12:26:59 by frrusso           #+#    #+#             */
+/*   Updated: 2022/12/14 12:27:01 by frrusso          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
 
-int	main(int ac, char **av, char **env)
+int	putstr_out(char *str)
 {
-	t_cub3d	cub3d;
+	if (str == NULL)
+		return (0);
+	write(1, str, ft_strlen(str));
+	return (0);
+}
 
-	parsing(ac, av, env);
-	init(&cub3d, av[1]);
-	ft_cub3d(&cub3d);
-	return (free_return(&cub3d));
+int	putstr_err(char *str)
+{
+	if (str == NULL)
+		return (1);
+	write(2, str, ft_strlen(str));
+	return (1);
+}
+
+bool	char_in_string(char c, char *str)
+{
+	if (c == '\0' || str == NULL)
+		return (false);
+	while (*str)
+	{
+		if (c == *str)
+			return (true);
+		str++;
+	}
+	return (false);
 }

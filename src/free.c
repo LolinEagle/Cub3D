@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frrusso <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 13:38:01 by frrusso           #+#    #+#             */
-/*   Updated: 2022/12/08 13:38:03 by frrusso          ###   ########.fr       */
+/*   Created: 2022/12/14 16:44:03 by frrusso           #+#    #+#             */
+/*   Updated: 2022/12/14 16:44:04 by frrusso          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
 
-int	main(int ac, char **av, char **env)
+int	free_return(t_cub3d *cub3d)
 {
-	t_cub3d	cub3d;
+	if (cub3d->win)
+		mlx_destroy_window(cub3d->mlx, cub3d->win);
+	mlx_destroy_display(cub3d->mlx);
+	free(cub3d->mlx);
+	return (0);
+}
 
-	parsing(ac, av, env);
-	init(&cub3d, av[1]);
-	ft_cub3d(&cub3d);
-	return (free_return(&cub3d));
+void	free_exit(t_cub3d *cub3d)
+{
+	if (cub3d->win)
+		mlx_destroy_window(cub3d->mlx, cub3d->win);
+	mlx_destroy_display(cub3d->mlx);
+	free(cub3d->mlx);
+	exit(1);
 }
