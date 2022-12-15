@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME		=	cub3D
-SRC			=	main.c cub3d.c free.c parsing.c utils.c
+SRC			=	main.c cub3d.c free.c initialization.c parsing.c utils.c
 
 # **************************************************************************** #
 #    Compiler                                                                  #
@@ -62,7 +62,7 @@ run:${NAME}
 
 debug:${NAME}
 	clear
-	valgrind --leak-check=full --show-leak-kinds=all ./${NAME} map/map.cub
+	valgrind --leak-check=full --show-leak-kinds=all ./${NAME} map/subject2.cub
 
 ${OBJ_PATH}%.o:${SRC_PATH}%.c
 	${CC} ${CFLAG} -MMD -c $< -o $@ ${INCDIR}

@@ -16,16 +16,15 @@ int	free_return(t_cub3d *cub3d)
 {
 	if (cub3d->win)
 		mlx_destroy_window(cub3d->mlx, cub3d->win);
-	mlx_destroy_display(cub3d->mlx);
+	if (cub3d->mlx)
+		mlx_destroy_display(cub3d->mlx);
 	free(cub3d->mlx);
 	return (0);
 }
 
-void	free_exit(t_cub3d *cub3d)
+void	free_exit(t_cub3d *cub3d, char *err)
 {
-	if (cub3d->win)
-		mlx_destroy_window(cub3d->mlx, cub3d->win);
-	mlx_destroy_display(cub3d->mlx);
-	free(cub3d->mlx);
+	free_return(cub3d);
+	putstr_out(err);
 	exit(1);
 }

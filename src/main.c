@@ -17,7 +17,8 @@ int	main(int ac, char **av, char **env)
 	t_cub3d	cub3d;
 
 	parsing(ac, av, env);
-	init(&cub3d, av[1]);
+	initialization_var(&cub3d);
+	initialization(&cub3d, av[1]);
 	ft_cub3d(&cub3d);
 	return (free_return(&cub3d));
 }

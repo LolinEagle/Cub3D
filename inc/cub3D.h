@@ -23,8 +23,8 @@
 # define DOWN 65364
 # define RIGHT 65363
 # define NAME "Cub3D"
-# define WEIGHT 1920
-# define HEIGHT 1080
+# define WEIGHT 1600
+# define HEIGHT  900
 
 # include <libft.h>
 # include <mlx.h>
@@ -63,15 +63,21 @@ void	ft_cub3d(t_cub3d *cub3d);
 /*   free.c                                                     2 functions   */
 /* ************************************************************************** */
 int		free_return(t_cub3d *cub3d);
-void	free_exit(t_cub3d *cub3d);
+void	free_exit(t_cub3d *cub3d, char *err);
 
 /* ************************************************************************** */
-/*   parsing.c                                                  4 functions   */
+/*   initialization.c                                           3 functions   */
+/* ************************************************************************** */
+int		create_rgb(int r, int g, int b);
+char	*initialization_file(t_cub3d *cub3d, int fd, char *str);
+void	initialization(t_cub3d *cub3d, char *av);
+
+/* ************************************************************************** */
+/*   parsing.c                                                  3 functions   */
 /* ************************************************************************** */
 bool	iscub(char *av);
-int		create_rgb(int r, int g, int b);
 void	parsing(int ac, char **av, char **env);
-void	init(t_cub3d *cub3d, char *av);
+void	initialization_var(t_cub3d *cub3d);
 
 /* ************************************************************************** */
 /*   utils.c                                                    3 functions   */
