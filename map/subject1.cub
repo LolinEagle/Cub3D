@@ -1,3 +1,9 @@
+NO ./img/sExit.xpm
+SO ./img/sKey0.xpm
+WE ./img/sTile.xpm
+EA ./img/sWall.xpm
+F 220,100,0
+C 225,30,0
 111111
 100101
 101001

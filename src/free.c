@@ -16,6 +16,18 @@ int	free_return(t_cub3d *cub3d)
 {
 	if (cub3d->win)
 		mlx_destroy_window(cub3d->mlx, cub3d->win);
+	if (cub3d->north)
+		mlx_destroy_image(cub3d->mlx, cub3d->north);
+	if (cub3d->south)
+		mlx_destroy_image(cub3d->mlx, cub3d->south);
+	if (cub3d->west)
+		mlx_destroy_image(cub3d->mlx, cub3d->west);
+	if (cub3d->east)
+		mlx_destroy_image(cub3d->mlx, cub3d->east);
+	if (cub3d->floor)
+		mlx_destroy_image(cub3d->mlx, cub3d->floor);
+	if (cub3d->ceiling)
+		mlx_destroy_image(cub3d->mlx, cub3d->ceiling);
 	if (cub3d->mlx)
 		mlx_destroy_display(cub3d->mlx);
 	free(cub3d->mlx);

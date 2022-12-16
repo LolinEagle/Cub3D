@@ -11,13 +11,14 @@
 # **************************************************************************** #
 
 NAME		=	cub3D
-SRC			=	main.c cub3d.c free.c initialization.c parsing.c utils.c
+SRC			=	main.c cub3d.c free.c initialization_utils.c initialization.c \
+				parsing.c utils.c
 
 # **************************************************************************** #
 #    Compiler                                                                  #
 # **************************************************************************** #
 CC			=	cc
-CFLAG		=	-Wall -Wextra -Werror
+CFLAG		=	-Wall -Wextra -Werror -g3
 RM			=	rm -rf
 
 # **************************************************************************** #
@@ -62,7 +63,7 @@ run:${NAME}
 
 debug:${NAME}
 	clear
-	valgrind --leak-check=full --show-leak-kinds=all ./${NAME} map/subject2.cub
+	valgrind --leak-check=full --show-leak-kinds=all ./${NAME} map/map.cub
 
 ${OBJ_PATH}%.o:${SRC_PATH}%.c
 	${CC} ${CFLAG} -MMD -c $< -o $@ ${INCDIR}

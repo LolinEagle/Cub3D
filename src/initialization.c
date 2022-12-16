@@ -12,11 +12,6 @@
 
 #include <cub3D.h>
 
-int	create_rgb(int r, int g, int b)
-{
-	return (r << 16 | g << 8 | b);
-}
-
 char	*initialization_file(t_cub3d *cub3d, int fd, char *str)
 {
 	while (1)
@@ -28,17 +23,17 @@ char	*initialization_file(t_cub3d *cub3d, int fd, char *str)
 		if (str[0] == '\n')
 			continue ;
 		else if (ft_strncmp(str, "NO", 2) == 0)
-			printf("NO find\n");
+			cub3d->north = cardinal_images(cub3d, str, cub3d->north);
 		else if (ft_strncmp(str, "SO", 2) == 0)
-			printf("SO find\n");
+			cub3d->south = cardinal_images(cub3d, str, cub3d->south);
 		else if (ft_strncmp(str, "WE", 2) == 0)
-			printf("WE find\n");
+			cub3d->west = cardinal_images(cub3d, str, cub3d->west);
 		else if (ft_strncmp(str, "EA", 2) == 0)
-			printf("EA find\n");
+			cub3d->east = cardinal_images(cub3d, str, cub3d->east);
 		else if (ft_strncmp(str, "F", 1) == 0)
-			printf("F find\n");
+			cub3d->floor = floor_and_ceiling(cub3d, str, cub3d->floor);
 		else if (ft_strncmp(str, "C", 1) == 0)
-			printf("C find\n");
+			cub3d->ceiling = floor_and_ceiling(cub3d, str, cub3d->ceiling);
 		else
 			break ;
 	}
@@ -53,7 +48,7 @@ void	initialization(t_cub3d *cub3d, char *av)
 	cub3d->mlx = mlx_init();
 	if (cub3d->mlx == NULL)
 		free_exit(cub3d, "mlx_init\n");
-	cub3d->win = mlx_new_window(cub3d->mlx, cub3d->weight, cub3d->height, NAME);
+	cub3d->win = mlx_new_window(cub3d->mlx, cub3d->width, cub3d->height, NAME);
 	if (cub3d->win == NULL)
 		free_exit(cub3d, "mlx_new_window\n");
 	fd = open(av, O_RDONLY);

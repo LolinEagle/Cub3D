@@ -45,7 +45,7 @@ void	initialization_var(t_cub3d *cub3d)
 {
 	cub3d->mlx = NULL;
 	cub3d->win = NULL;
-	cub3d->weight = WEIGHT;
+	cub3d->width = WIDTH;
 	cub3d->height = HEIGHT;
 	cub3d->north = NULL;
 	cub3d->south = NULL;

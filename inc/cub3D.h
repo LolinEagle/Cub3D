@@ -23,8 +23,8 @@
 # define DOWN 65364
 # define RIGHT 65363
 # define NAME "Cub3D"
-# define WEIGHT 1600
-# define HEIGHT  900
+# define WIDTH 1600
+# define HEIGHT 900
 
 # include <libft.h>
 # include <mlx.h>
@@ -40,7 +40,7 @@ typedef struct s_cub3d
 {
 	void	*mlx;
 	void	*win;
-	int		weight;
+	int		width;
 	int		height;
 	void	*north;
 	void	*south;
@@ -66,9 +66,16 @@ int		free_return(t_cub3d *cub3d);
 void	free_exit(t_cub3d *cub3d, char *err);
 
 /* ************************************************************************** */
-/*   initialization.c                                           3 functions   */
+/*   initialization_utils.c                                     4 functions   */
 /* ************************************************************************** */
 int		create_rgb(int r, int g, int b);
+void	*cardinal_images(t_cub3d *cub3d, char *str, void *cardinal);
+int		floor_and_ceiling_color(char *str);
+void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr);
+
+/* ************************************************************************** */
+/*   initialization.c                                           2 functions   */
+/* ************************************************************************** */
 char	*initialization_file(t_cub3d *cub3d, int fd, char *str);
 void	initialization(t_cub3d *cub3d, char *av);
 
