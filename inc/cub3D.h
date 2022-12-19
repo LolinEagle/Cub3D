@@ -51,6 +51,20 @@ typedef struct s_cub3d
 	char	**map;
 }	t_cub3d;
 
+typedef unsigned char	t_rgb;
+
+typedef struct s_img
+{
+	void	*img;
+	char	*img_str;
+	int		bits;
+	int		size_line;
+	int		endian;
+	t_rgb	r;
+	t_rgb	g;
+	t_rgb	b;
+}			t_img;
+
 /* ************************************************************************** */
 /*   cub3d.c                                                    4 functions   */
 /* ************************************************************************** */
@@ -68,9 +82,9 @@ void	free_exit(t_cub3d *cub3d, char *err);
 /* ************************************************************************** */
 /*   initialization_utils.c                                     4 functions   */
 /* ************************************************************************** */
-int		create_rgb(int r, int g, int b);
+void	put_pixel_image(int x, int y, t_img s);
 void	*cardinal_images(t_cub3d *cub3d, char *str, void *cardinal);
-int		floor_and_ceiling_color(char *str);
+t_rgb	floor_and_ceiling_color(char **str);
 void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr);
 
 /* ************************************************************************** */

@@ -58,7 +58,6 @@ void	initialization(t_cub3d *cub3d, char *av)
 	str = initialization_file(cub3d, fd, str);
 	while (1)
 	{
-		ft_putstr_fd(str, 1);
 		free(str);
 		str = get_next_line(fd);
 		if (str == NULL)
