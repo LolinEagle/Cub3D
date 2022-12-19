@@ -48,6 +48,8 @@ typedef struct s_cub3d
 	void	*east;
 	void	*ceiling;
 	void	*floor;
+	int		map_width;
+	int		map_height;
 	char	**map;
 }	t_cub3d;
 
@@ -88,9 +90,11 @@ t_rgb	floor_and_ceiling_color(char **str);
 void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr);
 
 /* ************************************************************************** */
-/*   initialization.c                                           2 functions   */
+/*   initialization.c                                           4 functions   */
 /* ************************************************************************** */
 char	*initialization_file(t_cub3d *cub3d, int fd, char *str);
+void	initialization_map_size(t_cub3d *cub3d, int fd, char *str);
+void	initialization_map(t_cub3d *cub3d, int fd, char *str);
 void	initialization(t_cub3d *cub3d, char *av);
 
 /* ************************************************************************** */
@@ -101,10 +105,11 @@ void	parsing(int ac, char **av, char **env);
 void	initialization_var(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   utils.c                                                    3 functions   */
+/*   utils.c                                                    4 functions   */
 /* ************************************************************************** */
 int		putstr_out(char *str);
 int		putstr_err(char *str);
+int		ft_strlen_gnl(const char *s);
 bool	char_in_string(char c, char *str);
 
 /* ************************************************************************** */

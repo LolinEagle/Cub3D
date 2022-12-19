@@ -29,6 +29,18 @@ int	putstr_err(char *str)
 	return (1);
 }
 
+int	ft_strlen_gnl(const char *s)
+{
+	int	i;
+
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i] && s[i] != '\n')
+		i++;
+	return (i);
+}
+
 bool	char_in_string(char c, char *str)
 {
 	if (c == '\0' || str == NULL)

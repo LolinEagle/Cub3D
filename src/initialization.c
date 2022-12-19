@@ -40,6 +40,43 @@ char	*initialization_file(t_cub3d *cub3d, int fd, char *str)
 	return (str);
 }
 
+void	initialization_map_size(t_cub3d *cub3d, int fd, char *str)
+{
+	int	x;
+
+	cub3d->map_width = ft_strlen_gnl(str);
+	cub3d->map_height = 0;
+	while (1)
+	{
+		x = ft_strlen_gnl(str);
+		if (cub3d->map_width < x)
+			cub3d->map_width = x;
+		cub3d->map_height++;
+		free(str);
+		str = get_next_line(fd);
+		if (str == NULL)
+			break ;
+	}
+}
+
+void	initialization_map(t_cub3d *cub3d, int fd, char *str)
+{
+	while (1)
+	{
+		free(str);
+		str = get_next_line(fd);
+		if (str == NULL)
+			free_exit(cub3d, "Empty or no map\n");
+		if (str[0] == '\n' || ft_strncmp(str, "NO", 2) == 0 || ft_strncmp(str, \
+			"SO", 2) == 0 || ft_strncmp(str, "WE", 2) == 0 || ft_strncmp(str, \
+			"EA", 2) == 0 || ft_strncmp(str, "F", 1) == 0 || ft_strncmp(str, \
+			"C", 1) == 0)
+			continue ;
+		else
+			break ;
+	}
+}
+
 void	initialization(t_cub3d *cub3d, char *av)
 {
 	int		fd;
@@ -56,11 +93,10 @@ void	initialization(t_cub3d *cub3d, char *av)
 		free_exit(cub3d, "Can't open your map or your map doesn't exist.\n");
 	str = NULL;
 	str = initialization_file(cub3d, fd, str);
-	while (1)
-	{
-		free(str);
-		str = get_next_line(fd);
-		if (str == NULL)
-			break ;
-	}
+	initialization_map_size(cub3d, fd, str);
+	fd = open(av, O_RDONLY);
+	if (fd == -1)
+		free_exit(cub3d, "Can't open your map or your map doesn't exist.\n");
+	str = NULL;
+	initialization_map(cub3d, fd, str);
 }
