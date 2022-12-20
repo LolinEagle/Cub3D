@@ -46,3 +46,9 @@ void	free_exit(t_cub3d *cub3d, char *err)
 	putstr_out(err);
 	exit(1);
 }
+
+void	free_close(t_cub3d *cub3d, char *err, int fd)
+{
+	close(fd);
+	free_exit(cub3d, err);
+}

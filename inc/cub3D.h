@@ -51,7 +51,7 @@ typedef struct s_cub3d
 	int		map_width;
 	int		map_height;
 	char	**map;
-}	t_cub3d;
+}			t_cub3d;
 
 typedef unsigned char	t_rgb;
 
@@ -68,6 +68,11 @@ typedef struct s_img
 }			t_img;
 
 /* ************************************************************************** */
+/*   debug/debug.c                                              1 functions   */
+/* ************************************************************************** */
+void	print_cub3d(t_cub3d *cub3d);
+
+/* ************************************************************************** */
 /*   cub3d.c                                                    4 functions   */
 /* ************************************************************************** */
 int		deal_close(void *mlx);
@@ -76,17 +81,18 @@ int		deal_loop(t_cub3d *cub3d);
 void	cub3d_loop(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   free.c                                                     2 functions   */
+/*   free.c                                                     3 functions   */
 /* ************************************************************************** */
 int		free_return(t_cub3d *cub3d);
 void	free_exit(t_cub3d *cub3d, char *err);
+void	free_close(t_cub3d *cub3d, char *err, int fd);
 
 /* ************************************************************************** */
 /*   initialization_utils.c                                     4 functions   */
 /* ************************************************************************** */
-void	put_pixel_image(int x, int y, t_img s);
 void	*cardinal_images(t_cub3d *cub3d, char *str, void *cardinal);
 t_rgb	floor_and_ceiling_color(char **str);
+void	put_pixel_image(int x, int y, t_img s);
 void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr);
 
 /* ************************************************************************** */

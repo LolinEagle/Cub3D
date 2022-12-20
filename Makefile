@@ -11,8 +11,15 @@
 # **************************************************************************** #
 
 NAME		=	cub3D
-SRC			=	main.c cub3d.c free.c initialization_utils.c initialization.c \
-				parsing.c utils.c
+SRC			=	main.c \
+				cub3d.c \
+				free.c \
+				initialization_utils.c \
+				initialization.c \
+				parsing.c \
+				utils.c
+SRC			+=	${addprefix debug/,\
+				debug.c}
 
 # **************************************************************************** #
 #    Compiler                                                                  #
@@ -26,7 +33,6 @@ RM			=	rm -rf
 # **************************************************************************** #
 SRC_PATH	=	./src/
 OBJ_PATH	=	./obj/
-OBJ_DIRS	=	${OBJ_PATH}
 OBJ			=	${addprefix ${OBJ_PATH},${SRC:.c=.o}}
 DEP			=	${addprefix ${OBJ_PATH},${SRC:.c=.d}}
 
@@ -66,12 +72,10 @@ debug:${NAME}
 	valgrind --leak-check=full --show-leak-kinds=all ./${NAME} map/map.cub
 
 ${OBJ_PATH}%.o:${SRC_PATH}%.c
+	@mkdir -p ${dir $@}
 	${CC} ${CFLAG} -MMD -c $< -o $@ ${INCDIR}
 
-${OBJ_DIRS}:
-	mkdir ${OBJ_DIRS}
-
-${NAME}:${OBJ_DIRS} ${OBJ}
+${NAME}:${OBJ}
 	@make -sC _libft
 	@make -sC _minilibx-linux
 	${CC} ${CFLAG} ${OBJ} ${LIBDIR} ${LIBINC} -o $@

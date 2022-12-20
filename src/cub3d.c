@@ -22,6 +22,18 @@ int	deal_key(int key, t_cub3d *cub3d)
 {
 	if (key == ESC)
 		mlx_loop_end(cub3d->mlx);
+	if (key == W || key == UP)
+		putstr_out("Moving up\n");
+	if (key == A)
+		putstr_out("Moving left\n");
+	if (key == S || key == DOWN)
+		putstr_out("Moving down\n");
+	if (key == D)
+		putstr_out("Moving right\n");
+	if (key == LEFT)
+		putstr_out("Rotation left\n");
+	if (key == RIGHT)
+		putstr_out("Rotation right\n");
 	return (0);
 }
 
