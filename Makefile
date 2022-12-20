@@ -12,13 +12,14 @@
 
 NAME		=	cub3D
 SRC			=	main.c \
-				cub3d.c \
-				free.c \
+				cub3d.c
+SRC			+=	${addprefix parsing/,\
 				initialization_utils.c \
 				initialization.c \
-				parsing.c \
-				utils.c
-SRC			+=	${addprefix debug/,\
+				parsing.c}
+SRC			+=	${addprefix utils/,\
+				free.c \
+				utils.c \
 				debug.c}
 
 # **************************************************************************** #

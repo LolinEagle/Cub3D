@@ -68,9 +68,47 @@ typedef struct s_img
 }			t_img;
 
 /* ************************************************************************** */
-/*   debug/debug.c                                              1 functions   */
+/*   parsing/initialization_utils.c                             4 functions   */
+/* ************************************************************************** */
+void	*cardinal_images(t_cub3d *cub3d, char *str, void *cardinal);
+t_rgb	floor_and_ceiling_color(char **str);
+void	put_pixel_image(int x, int y, t_img s);
+void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr);
+
+/* ************************************************************************** */
+/*   parsing/initialization.c                                   4 functions   */
+/* ************************************************************************** */
+char	*initialization_file(t_cub3d *cub3d, int fd, char *str);
+void	initialization_map_size(t_cub3d *cub3d, int fd, char *str);
+void	initialization_map(t_cub3d *cub3d, int fd, char *str);
+void	initialization(t_cub3d *cub3d, char *av);
+
+/* ************************************************************************** */
+/*   parsing/parsing.c                                          3 functions   */
+/* ************************************************************************** */
+bool	iscub(char *av);
+void	parsing(int ac, char **av, char **env);
+void	initialization_var(t_cub3d *cub3d);
+
+/* ************************************************************************** */
+/*   utils/debug.c                                              1 functions   */
 /* ************************************************************************** */
 void	print_cub3d(t_cub3d *cub3d);
+
+/* ************************************************************************** */
+/*   utils/free.c                                               3 functions   */
+/* ************************************************************************** */
+int		free_return(t_cub3d *cub3d);
+void	free_exit(t_cub3d *cub3d, char *err);
+void	free_close(t_cub3d *cub3d, char *err, int fd);
+
+/* ************************************************************************** */
+/*   utils/utils.c                                              4 functions   */
+/* ************************************************************************** */
+int		putstr_out(char *str);
+int		putstr_err(char *str);
+size_t	strlen_endl(const char *s);
+bool	char_in_string(char c, char *str);
 
 /* ************************************************************************** */
 /*   cub3d.c                                                    4 functions   */
@@ -79,44 +117,6 @@ int		deal_close(void *mlx);
 int		deal_key(int key, t_cub3d *cub3d);
 int		deal_loop(t_cub3d *cub3d);
 void	cub3d_loop(t_cub3d *cub3d);
-
-/* ************************************************************************** */
-/*   free.c                                                     3 functions   */
-/* ************************************************************************** */
-int		free_return(t_cub3d *cub3d);
-void	free_exit(t_cub3d *cub3d, char *err);
-void	free_close(t_cub3d *cub3d, char *err, int fd);
-
-/* ************************************************************************** */
-/*   initialization_utils.c                                     4 functions   */
-/* ************************************************************************** */
-void	*cardinal_images(t_cub3d *cub3d, char *str, void *cardinal);
-t_rgb	floor_and_ceiling_color(char **str);
-void	put_pixel_image(int x, int y, t_img s);
-void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr);
-
-/* ************************************************************************** */
-/*   initialization.c                                           4 functions   */
-/* ************************************************************************** */
-char	*initialization_file(t_cub3d *cub3d, int fd, char *str);
-void	initialization_map_size(t_cub3d *cub3d, int fd, char *str);
-void	initialization_map(t_cub3d *cub3d, int fd, char *str);
-void	initialization(t_cub3d *cub3d, char *av);
-
-/* ************************************************************************** */
-/*   parsing.c                                                  3 functions   */
-/* ************************************************************************** */
-bool	iscub(char *av);
-void	parsing(int ac, char **av, char **env);
-void	initialization_var(t_cub3d *cub3d);
-
-/* ************************************************************************** */
-/*   utils.c                                                    4 functions   */
-/* ************************************************************************** */
-int		putstr_out(char *str);
-int		putstr_err(char *str);
-size_t	strlen_endl(const char *s);
-bool	char_in_string(char c, char *str);
 
 /* ************************************************************************** */
 /*   main.c                                                     1 functions   */
