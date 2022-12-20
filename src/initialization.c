@@ -44,11 +44,11 @@ void	initialization_map_size(t_cub3d *cub3d, int fd, char *str)
 {
 	int	x;
 
-	cub3d->map_width = ft_strlen_gnl(str);
+	cub3d->map_width = strlen_endl(str);
 	cub3d->map_height = 0;
 	while (1)
 	{
-		x = ft_strlen_gnl(str);
+		x = strlen_endl(str);
 		if (cub3d->map_width < x)
 			cub3d->map_width = x;
 		cub3d->map_height++;

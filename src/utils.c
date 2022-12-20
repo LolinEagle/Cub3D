@@ -29,9 +29,9 @@ int	putstr_err(char *str)
 	return (1);
 }
 
-int	ft_strlen_gnl(const char *s)
+size_t	strlen_endl(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	if (!s)
 		return (0);

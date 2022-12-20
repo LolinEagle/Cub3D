@@ -73,7 +73,7 @@ typedef struct s_img
 int		deal_close(void *mlx);
 int		deal_key(int key, t_cub3d *cub3d);
 int		deal_loop(t_cub3d *cub3d);
-void	ft_cub3d(t_cub3d *cub3d);
+void	cub3d_loop(t_cub3d *cub3d);
 
 /* ************************************************************************** */
 /*   free.c                                                     2 functions   */
@@ -109,7 +109,7 @@ void	initialization_var(t_cub3d *cub3d);
 /* ************************************************************************** */
 int		putstr_out(char *str);
 int		putstr_err(char *str);
-int		ft_strlen_gnl(const char *s);
+size_t	strlen_endl(const char *s);
 bool	char_in_string(char c, char *str);
 
 /* ************************************************************************** */
