@@ -17,9 +17,9 @@ SRC			+=	${addprefix parsing/,\
 				initialization_utils.c \
 				initialization.c \
 				parsing.c}
-SRC			+=	${addprefix utils/,\
+SRC			+=	${addprefix useful/,\
 				free.c \
-				utils.c \
+				useful.c \
 				debug.c}
 
 # **************************************************************************** #

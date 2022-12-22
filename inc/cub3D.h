@@ -99,19 +99,19 @@ void	parsing(int ac, char **av, char **env);
 void	initialization_var(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   utils/debug.c                                              1 functions   */
+/*   useful/debug.c                                             1 functions   */
 /* ************************************************************************** */
 void	print_cub3d(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   utils/free.c                                               3 functions   */
+/*   useful/free.c                                              3 functions   */
 /* ************************************************************************** */
 int		free_return(t_cub3d *cub3d);
 void	free_exit(t_cub3d *cub3d, char *err);
 void	free_close(t_cub3d *cub3d, char *err, int fd);
 
 /* ************************************************************************** */
-/*   utils/utils.c                                              5 functions   */
+/*   useful/useful.c                                            5 functions   */
 /* ************************************************************************** */
 int		putstr_out(char *str);
 int		putstr_err(char *str);
