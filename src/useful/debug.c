@@ -31,5 +31,7 @@ void	print_cub3d(t_cub3d *cub3d)
 		printf("map[%zu]=%s", i, cub3d->map[i]);
 		i++;
 	}
+	printf("x=%f\t\t", cub3d->x);
+	printf("y=%f\n", cub3d->y);
 	printf("---------------------------------------------------------------\n");
 }

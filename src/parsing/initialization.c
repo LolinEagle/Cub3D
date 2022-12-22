@@ -135,4 +135,5 @@ void	initialization(t_cub3d *cub3d, char *av)
 		cub3d->ceiling = floor_and_ceiling(cub3d, " 255,255,255", NULL);
 	if (cub3d->floor == NULL || cub3d->ceiling == NULL)
 		free_exit(cub3d, "fatal\n");
+	map_algo(cub3d);
 }
