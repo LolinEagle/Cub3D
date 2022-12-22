@@ -19,7 +19,7 @@ char	*initialization_file(t_cub3d *cub3d, int fd, char *str)
 		free(str);
 		str = get_next_line(fd);
 		if (str == NULL)
-			free_close(cub3d, "Empty or no map\n", fd);
+			free_close(cub3d, "Empty or no map.\n", fd);
 		if (str[0] == '\n')
 			continue ;
 		else if (ft_strncmp(str, "NO", 2) == 0)
@@ -40,27 +40,44 @@ char	*initialization_file(t_cub3d *cub3d, int fd, char *str)
 	return (str);
 }
 
+void	initialization_map_size_check(t_cub3d *cub3d, t_init *init)
+{
+	if (init->wrong)
+		free_exit(cub3d, "Wrong character in the map.\n");
+	if (init->spawn == 0)
+		free_exit(cub3d, "No spawn point.\n");
+	if (init->spawn > 1)
+		free_exit(cub3d, "Too many spawn points.\n");
+	cub3d->map = malloc(sizeof(char *) * cub3d->height + 1);
+	if (cub3d->map == NULL)
+		free_exit(cub3d, "malloc fail\n");
+}
+
 void	initialization_map_size(t_cub3d *cub3d, int fd, char *str)
 {
-	int	x;
+	t_init	init;
 
-	cub3d->map_width = 0;
-	cub3d->map_height = 0;
+	init.spawn = 0;
+	init.wrong = false;
 	while (true)
 	{
-		x = strlen_endl(str);
-		if (cub3d->map_width < x)
-			cub3d->map_width = x;
-		cub3d->map_height++;
+		if (init.wrong == false || init.spawn <= 1)
+		{
+			init.x = strlen_endl(str);
+			if (cub3d->map_width < init.x)
+				cub3d->map_width = init.x;
+			cub3d->map_height++;
+			init.spawn += string_in_map(str, "NSWE", 0);
+			if (string_in_map(str, " 01NSWE\n", 1) == 0)
+				init.wrong = true;
+		}
 		free(str);
 		str = get_next_line(fd);
 		if (str == NULL)
 			break ;
 	}
 	close(fd);
-	cub3d->map = malloc(sizeof(char *) * cub3d->height + 1);
-	if (cub3d->map == NULL)
-		free_exit(cub3d, "malloc fail\n");
+	initialization_map_size_check(cub3d, &init);
 }
 
 void	initialization_map(t_cub3d *cub3d, int fd, char *str)

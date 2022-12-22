@@ -53,3 +53,21 @@ bool	char_in_string(char c, char *str)
 	}
 	return (false);
 }
+
+size_t	string_in_map(char *str1, char *str2, bool strict)
+{
+	size_t	i;
+	size_t	ret;
+
+	ret = 0;
+	i = 0;
+	while (str1[i])
+	{
+		if (char_in_string(str1[i], str2))
+			ret++;
+		else if (strict)
+			return (0);
+		i++;
+	}
+	return (ret);
+}

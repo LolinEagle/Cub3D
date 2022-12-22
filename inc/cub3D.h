@@ -40,16 +40,16 @@ typedef struct s_cub3d
 {
 	void	*mlx;
 	void	*win;
-	int		width;
-	int		height;
+	size_t	width;
+	size_t	height;
 	void	*north;
 	void	*south;
 	void	*west;
 	void	*east;
 	void	*ceiling;
 	void	*floor;
-	int		map_width;
-	int		map_height;
+	size_t	map_width;
+	size_t	map_height;
 	char	**map;
 }			t_cub3d;
 
@@ -67,6 +67,13 @@ typedef struct s_img
 	t_rgb	b;
 }			t_img;
 
+typedef struct s_init
+{
+	size_t	x;
+	size_t	spawn;
+	bool	wrong;
+}			t_init;
+
 /* ************************************************************************** */
 /*   parsing/initialization_utils.c                             4 functions   */
 /* ************************************************************************** */
@@ -76,9 +83,10 @@ void	put_pixel_image(int x, int y, t_img s);
 void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr);
 
 /* ************************************************************************** */
-/*   parsing/initialization.c                                   4 functions   */
+/*   parsing/initialization.c                                   5 functions   */
 /* ************************************************************************** */
 char	*initialization_file(t_cub3d *cub3d, int fd, char *str);
+void	initialization_map_size_check(t_cub3d *cub3d, t_init *init);
 void	initialization_map_size(t_cub3d *cub3d, int fd, char *str);
 void	initialization_map(t_cub3d *cub3d, int fd, char *str);
 void	initialization(t_cub3d *cub3d, char *av);
@@ -103,12 +111,13 @@ void	free_exit(t_cub3d *cub3d, char *err);
 void	free_close(t_cub3d *cub3d, char *err, int fd);
 
 /* ************************************************************************** */
-/*   utils/utils.c                                              4 functions   */
+/*   utils/utils.c                                              5 functions   */
 /* ************************************************************************** */
 int		putstr_out(char *str);
 int		putstr_err(char *str);
 size_t	strlen_endl(const char *s);
 bool	char_in_string(char c, char *str);
+size_t	string_in_map(char *str1, char *str2, bool strict);
 
 /* ************************************************************************** */
 /*   cub3d.c                                                    4 functions   */

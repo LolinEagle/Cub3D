@@ -43,7 +43,7 @@ int	free_return(t_cub3d *cub3d)
 void	free_exit(t_cub3d *cub3d, char *err)
 {
 	free_return(cub3d);
-	putstr_out(err);
+	putstr_err(err);
 	exit(1);
 }
 

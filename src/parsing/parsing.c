@@ -53,5 +53,7 @@ void	initialization_var(t_cub3d *cub3d)
 	cub3d->east = NULL;
 	cub3d->ceiling = NULL;
 	cub3d->floor = NULL;
+	cub3d->map_width = 0;
+	cub3d->map_height = 0;
 	cub3d->map = NULL;
 }
