@@ -13,6 +13,8 @@
 NAME		=	cub3D
 SRC			=	main.c \
 				cub3d.c
+SRC			+=	${addprefix map/,\
+				map_algo.c}
 SRC			+=	${addprefix parsing/,\
 				initialization_utils.c \
 				initialization.c \

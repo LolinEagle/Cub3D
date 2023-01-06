@@ -51,6 +51,8 @@ typedef struct s_cub3d
 	size_t	map_width;
 	size_t	map_height;
 	char	**map;
+	double	x;
+	double	y;
 }			t_cub3d;
 
 typedef unsigned char	t_rgb;
@@ -73,6 +75,12 @@ typedef struct s_init
 	size_t	spawn;
 	bool	wrong;
 }			t_init;
+
+/* ************************************************************************** */
+/*   map/map_algo.c                                             2 functions   */
+/* ************************************************************************** */
+void	map_spawn(t_cub3d *cub3d);
+void	map_algo(t_cub3d *cub3d);
 
 /* ************************************************************************** */
 /*   parsing/initialization_utils.c                             4 functions   */
