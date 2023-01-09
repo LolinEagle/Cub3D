@@ -25,6 +25,7 @@
 # define NAME "Cub3D"
 # define WIDTH 1600
 # define HEIGHT 900
+# define H_HALF 450
 
 # include <libft.h>
 # include <mlx.h>
