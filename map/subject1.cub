@@ -1,3 +1,9 @@
+NO ./img/sWall1.xpm
+SO ./img/sWall2.xpm
+WE ./img/sWall3.xpm
+EA ./img/sWall4.xpm
+F 220,100,0
+C 225,30,0
 111111
 100101
 101001

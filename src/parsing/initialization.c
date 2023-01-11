@@ -129,11 +129,9 @@ void	initialization(t_cub3d *cub3d, char *av)
 	if (fd == -1)
 		free_exit(cub3d, "open fail\n");
 	initialization_map(cub3d, fd, NULL);
-	if (cub3d->floor == NULL)
-		cub3d->floor = floor_and_ceiling(cub3d, " 85,85,85", NULL);
-	if (cub3d->ceiling == NULL)
-		cub3d->ceiling = floor_and_ceiling(cub3d, " 255,255,255", NULL);
-	if (cub3d->floor == NULL || cub3d->ceiling == NULL)
-		free_exit(cub3d, "fatal\n");
+	if (cub3d->north == NULL || cub3d->south == NULL
+		|| cub3d->west == NULL || cub3d->east == NULL
+		|| cub3d->floor == NULL || cub3d->ceiling == NULL)
+		free_exit(cub3d, "Your file is missing an argument.\n");
 	map_algo(cub3d);
 }

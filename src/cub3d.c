@@ -40,12 +40,10 @@ int	deal_key(int key, t_cub3d *cub3d)
 int	deal_loop(t_cub3d *cub3d)
 {
 	mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->ceiling, 0, 0);
-	mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->floor, 0, 450);
+	mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->floor, 0, H_HALF);
 	return (0);
 }
 
-// mlx_mouse_hook(cub3d->win, deal_mouse, cub3d);
-// mlx_expose_hook(cub3d->win, deal_expose, cub3d);
 void	cub3d_loop(t_cub3d *cub3d)
 {
 	mlx_hook(cub3d->win, 17, 0, deal_close, cub3d->mlx);
