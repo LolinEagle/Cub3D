@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/11 16:42:27 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:04:52 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct s_cub3d
 	void	*east;
 	void	*ceiling;
 	void	*floor;
+	size_t	width;
+	size_t	height;
 	size_t	map_width;	//plus grande longueur de le map (nombre de char)
 	size_t	map_height; // y (nombre de lignes que gnl va trouver)
 	char	**map;		// array 2d

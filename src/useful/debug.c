@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:17:56 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/11 16:45:23 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:04:25 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_cub3d(t_cub3d *cub3d)
 
 	printf("---------------------------------------------------------------\n");
 	printf("mlx=%p\t\twin=%p\n", cub3d->mlx, cub3d->win);
-	printf("width=%zu\t\theight=%zu\n", WIDTH, HEIGHT);
+	printf("width=%zu\t\theight=%zu\n", cub3d->width, cub3d->height);
 	printf("north=%p\t\tsouth=%p\n", cub3d->north, cub3d->south);
 	printf("west=%p\t\teast=%p\n", cub3d->west, cub3d->east);
 	printf("ceiling=%p\tfloor=%p\n", cub3d->ceiling, cub3d->floor);
