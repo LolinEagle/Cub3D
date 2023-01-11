@@ -82,7 +82,7 @@ void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr)
 	if (ptr != NULL)
 		mlx_destroy_image(cub3d->mlx, ptr);
 	wh[0] = WIDTH;
-	wh[1] = HEIGHT / 2;
+	wh[1] = H_HALF;
 	s.img = mlx_new_image(cub3d->mlx, wh[0], wh[1]);
 	if (s.img == NULL)
 		return (NULL);
