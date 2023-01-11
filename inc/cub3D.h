@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frrusso <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2022/12/08 15:51:48 by frrusso          ###   ########.fr       */
+/*   Updated: 2023/01/11 16:42:27 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,32 @@ typedef struct s_cub3d
 {
 	void	*mlx;
 	void	*win;
-	size_t	width;
-	size_t	height;
 	void	*north;
 	void	*south;
 	void	*west;
 	void	*east;
 	void	*ceiling;
 	void	*floor;
-	size_t	map_width;
-	size_t	map_height;
-	char	**map;
-	double	x;
-	double	y;
+	size_t	map_width;	//plus grande longueur de le map (nombre de char)
+	size_t	map_height; // y (nombre de lignes que gnl va trouver)
+	char	**map;		// array 2d
+	double	x;			// pos_player
+	double	y;			// pos_player
+	
 }			t_cub3d;
+
+typedef struct s_wall_renderer
+{
+	double	cube_size;
+	double	player_pos;
+	double	player_size;
+	double	wall_size;
+	double	fov;		// field_of_view
+	double	v_dir_x;	// vecteur de direction depuis le joueur
+	double	v_dir_y;
+	double	camera_plane;
+	double	distance;
+}			t_wall_renderer;
 
 typedef unsigned char	t_rgb;
 

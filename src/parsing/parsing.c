@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frrusso <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:02:57 by frrusso           #+#    #+#             */
-/*   Updated: 2022/12/12 16:02:59 by frrusso          ###   ########.fr       */
+/*   Updated: 2023/01/11 15:53:32 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ void	initialization_var(t_cub3d *cub3d)
 {
 	cub3d->mlx = NULL;
 	cub3d->win = NULL;
-	cub3d->width = WIDTH;
-	cub3d->height = HEIGHT;
 	cub3d->north = NULL;
 	cub3d->south = NULL;
 	cub3d->west = NULL;

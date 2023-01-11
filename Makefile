@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: frrusso <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 13:18:13 by frrusso           #+#    #+#              #
-#    Updated: 2022/12/08 13:18:15 by frrusso          ###   ########.fr        #
+#    Updated: 2023/01/11 15:20:34 by sle-huec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,9 @@ SRC			+=	${addprefix useful/,\
 				free.c \
 				useful.c \
 				debug.c}
+
+SRC			+=	${addprefix wall_renderer/,\
+				test.c}
 
 # **************************************************************************** #
 #    Compiler                                                                  #
