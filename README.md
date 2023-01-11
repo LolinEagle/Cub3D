@@ -1,7 +1,9 @@
 # Cub3D
 42 school project
 
-The goal of this project is to use RayCaster with the minilibX
+This project is inspired by the Wolfeinstein 3D game, considered the first FPS
+ever developed. It will allow us to explore the technique of ray-casting.
+Our goal is to make a dynamic view within a maze, in which we must find our way.
 
 ## Authors
 - [@SamanthaLHC](https://github.com/SamanthaLHC)
@@ -20,3 +22,7 @@ Here are some related projects
 [Submodule libft](https://github.com/LolinEagle/libft)
 
 [Submodule minilibx](https://github.com/42Paris/minilibx-linux.git)
+
+[sle-huec so_long](https://github.com/SamanthaLHC/so_long)
+
+[frrusso so_long](https://github.com/LolinEagle/so_long)

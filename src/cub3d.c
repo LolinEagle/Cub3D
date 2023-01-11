@@ -44,8 +44,6 @@ int	deal_loop(t_cub3d *cub3d)
 	return (0);
 }
 
-// mlx_mouse_hook(cub3d->win, deal_mouse, cub3d);
-// mlx_expose_hook(cub3d->win, deal_expose, cub3d);
 void	cub3d_loop(t_cub3d *cub3d)
 {
 	mlx_hook(cub3d->win, 17, 0, deal_close, cub3d->mlx);

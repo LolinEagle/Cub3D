@@ -18,20 +18,12 @@ void	map_spawn(t_cub3d *cub3d)
 	size_t	y;
 
 	i = 0;
-	while (true)
-	{
-		if (string_in_map(cub3d->map[i], "NSWE", 0) == 1)
-			break ;
+	while (string_in_map(cub3d->map[i], "NSWE", 0) == 0)
 		i++;
-	}
 	y = i;
 	i = 0;
-	while (true)
-	{
-		if (char_in_string(cub3d->map[y][i], "NSWE"))
-			break ;
+	while (char_in_string(cub3d->map[y][i], "NSWE") == false)
 		i++;
-	}
 	cub3d->x = i + 0.5;
 	cub3d->y = y + 0.5;
 }
