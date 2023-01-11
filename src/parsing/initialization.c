@@ -48,7 +48,7 @@ void	initialization_map_size_check(t_cub3d *cub3d, t_init *init)
 		free_exit(cub3d, "No spawn point.\n");
 	if (init->spawn > 1)
 		free_exit(cub3d, "Too many spawn points.\n");
-	cub3d->map = malloc(sizeof(char *) * cub3d->height + 1);
+	cub3d->map = malloc(sizeof(char *) * (cub3d->map_height + 1));
 	if (cub3d->map == NULL)
 		free_exit(cub3d, "malloc fail\n");
 }
@@ -117,7 +117,7 @@ void	initialization(t_cub3d *cub3d, char *av)
 	cub3d->mlx = mlx_init();
 	if (cub3d->mlx == NULL)
 		free_exit(cub3d, "mlx_init\n");
-	cub3d->win = mlx_new_window(cub3d->mlx, cub3d->width, cub3d->height, NAME);
+	cub3d->win = mlx_new_window(cub3d->mlx, WIDTH, HEIGHT, NAME);
 	if (cub3d->win == NULL)
 		free_exit(cub3d, "mlx_new_window\n");
 	fd = open(av, O_RDONLY);

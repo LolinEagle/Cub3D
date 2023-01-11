@@ -34,6 +34,10 @@
 # define HEIGHT 900
 # define W_HALF 800
 # define H_HALF 450
+# define MINIMAP_SIZE 64
+# define MINIMAP_EMPTY "./img/sWall2.xpm"
+# define MINIMAP_WALLS "./img/sWall1.xpm"
+# define MINIMAP_PLAYER "./img/sWall3.xpm"
 
 /* ************************************************************************** */
 /*   include                                                                  */
@@ -60,14 +64,15 @@ typedef struct s_cub3d
 {
 	void	*mlx;
 	void	*win;
-	size_t	width;
-	size_t	height;
 	void	*north;
 	void	*south;
 	void	*west;
 	void	*east;
 	void	*ceiling;
 	void	*floor;
+	void	*empty;
+	void	*walls;
+	void	*player;
 	size_t	map_width;
 	size_t	map_height;
 	char	**map;
@@ -101,6 +106,11 @@ void	map_spawn(t_cub3d *cub3d);
 void	map_algo(t_cub3d *cub3d);
 
 /* ************************************************************************** */
+/*   map/minimap.c                                              1 functions   */
+/* ************************************************************************** */
+void	*minimap_image(t_cub3d *cub3d, char *str);
+
+/* ************************************************************************** */
 /*   parsing/initialization_utils.c                             4 functions   */
 /* ************************************************************************** */
 void	*cardinal_images(t_cub3d *cub3d, char *str, void *cardinal);
@@ -125,13 +135,15 @@ void	parsing(int ac, char **av, char **env);
 void	initialization_var(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   useful/debug.c                                             1 functions   */
+/*   useful/debug.c                                             2 functions   */
 /* ************************************************************************** */
 void	print_cub3d(t_cub3d *cub3d);
+void	debug_minimap(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   useful/free.c                                              3 functions   */
+/*   useful/free.c                                              4 functions   */
 /* ************************************************************************** */
+void	free_image(t_cub3d *cub3d);
 int		free_return(t_cub3d *cub3d);
 void	free_exit(t_cub3d *cub3d, char *err);
 void	free_close(t_cub3d *cub3d, char *err, int fd);

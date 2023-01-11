@@ -45,15 +45,18 @@ void	initialization_var(t_cub3d *cub3d)
 {
 	cub3d->mlx = NULL;
 	cub3d->win = NULL;
-	cub3d->width = WIDTH;
-	cub3d->height = HEIGHT;
 	cub3d->north = NULL;
 	cub3d->south = NULL;
 	cub3d->west = NULL;
 	cub3d->east = NULL;
 	cub3d->ceiling = NULL;
 	cub3d->floor = NULL;
+	cub3d->empty = NULL;
+	cub3d->walls = NULL;
+	cub3d->player = NULL;
 	cub3d->map_width = 0;
 	cub3d->map_height = 0;
 	cub3d->map = NULL;
+	cub3d->x = 0;
+	cub3d->y = 0;
 }

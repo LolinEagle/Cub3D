@@ -17,6 +17,9 @@ void	map_spawn(t_cub3d *cub3d)
 	size_t	i;
 	size_t	y;
 
+	cub3d->empty = minimap_image(cub3d, MINIMAP_EMPTY);
+	cub3d->walls = minimap_image(cub3d, MINIMAP_WALLS);
+	cub3d->player = minimap_image(cub3d, MINIMAP_PLAYER);
 	i = 0;
 	while (string_in_map(cub3d->map[i], "NSWE", 0) == 0)
 		i++;

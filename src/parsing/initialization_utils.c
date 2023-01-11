@@ -92,10 +92,10 @@ void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr)
 	s.g = floor_and_ceiling_color(&str);
 	s.b = floor_and_ceiling_color(&str);
 	y = -1;
-	while (++y <= wh[1])
+	while (++y < wh[1])
 	{
 		x = -1;
-		while (++x <= wh[0])
+		while (++x < wh[0])
 			put_pixel_image(x, y, s);
 	}
 	return (s.img);
