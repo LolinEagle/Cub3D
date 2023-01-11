@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/11 17:06:52 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:49:10 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,14 @@ typedef struct s_cub3d
 typedef struct s_wall_renderer
 {
 	double	cube_size;
-	double	player_pos;
 	double	player_size;
 	double	wall_size;
 	double	fov;		// field_of_view
+	double	v_player_pos;
 	double	v_dir_x;	// vecteur de direction depuis le joueur
 	double	v_dir_y;
-	double	camera_plane;
+	double	v_camera_plane_x; // doit etre perpendiculaire à dir (??)
+	double	v_camera_plane_y; //doit etre perpendiculaire à dir (??)
 	double	distance;
 }			t_wall_renderer;
 
@@ -132,6 +133,11 @@ void	initialization_map_size_check(t_cub3d *cub3d, t_init *init);
 void	initialization_map_size(t_cub3d *cub3d, int fd, char *str);
 void	initialization_map(t_cub3d *cub3d, int fd, char *str);
 void	initialization(t_cub3d *cub3d, char *av);
+
+/* ************************************************************************** */
+/*   wall_renderer/init_renderer.c                              1 function   */
+/* ************************************************************************* */
+void	init_var_renderer(t_wall_renderer *wall_renderer);
 
 /* ************************************************************************** */
 /*   parsing/parsing.c                                          3 functions   */
