@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/12 14:53:25 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/12 15:26:15 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ void	initialization(t_cub3d *cub3d, char *av);
 /* ************************************************************************** */
 /*   wall_renderer/init_renderer.c                              1 function   */
 /* ************************************************************************* */
-void	init_var_renderer(t_wall_renderer *wall_renderer);
+void	init_var_renderer(t_cub3d *wall_renderer);
 
 /* ************************************************************************** */
 /*   parsing/parsing.c                                          3 functions   */
