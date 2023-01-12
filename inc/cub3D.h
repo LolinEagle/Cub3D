@@ -38,6 +38,8 @@
 # define MINIMAP_EMPTY "./img/sWall2.xpm"
 # define MINIMAP_WALLS "./img/sWall1.xpm"
 # define MINIMAP_PLAYER "./img/sWall3.xpm"
+# define MINIMAP_LEN 7
+# define MINIMAP_LEN_HALF 3
 
 /* ************************************************************************** */
 /*   include                                                                  */
@@ -135,9 +137,11 @@ void	parsing(int ac, char **av, char **env);
 void	initialization_var(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   useful/debug.c                                             2 functions   */
+/*   useful/debug.c                                             4 functions   */
 /* ************************************************************************** */
 void	print_cub3d(t_cub3d *cub3d);
+void	debug_minimap_full(t_cub3d *cub3d);
+void	debug_minimap_parsing(t_cub3d *cub3d, size_t x, size_t y, int yy);
 void	debug_minimap(t_cub3d *cub3d);
 
 /* ************************************************************************** */

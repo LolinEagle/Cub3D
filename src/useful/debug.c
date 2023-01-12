@@ -31,7 +31,7 @@ void	print_cub3d(t_cub3d *cub3d)
 	printf("---------------------------------------------------------------\n");
 }
 
-void	debug_minimap(t_cub3d *cub3d)
+void	debug_minimap_full(t_cub3d *cub3d)
 {
 	size_t	x;
 	size_t	y;
@@ -55,5 +55,45 @@ void	debug_minimap(t_cub3d *cub3d)
 		while (x < cub3d->map_width)
 			mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->walls, x++ *\
 				MINIMAP_SIZE, y * MINIMAP_SIZE);
+	}
+}
+
+void	debug_minimap_parsing(t_cub3d *cub3d, size_t x, size_t y, int yy)
+{
+	int		xx;
+
+	xx = floor(cub3d->x) - MINIMAP_LEN_HALF + x;
+	if (xx >= 0 && yy >= 0 && (size_t)xx < cub3d->map_width
+		&& (size_t)yy < cub3d->map_height
+		&& (size_t)xx < strlen_endl(cub3d->map[yy]))
+	{
+		if (xx == floor(cub3d->x) && yy == floor(cub3d->y))
+			mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->player,
+				x * MINIMAP_SIZE, y * MINIMAP_SIZE);
+		else if (char_in_string(cub3d->map[yy][xx], " 1"))
+			mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->walls,
+				x * MINIMAP_SIZE, y * MINIMAP_SIZE);
+		else if (char_in_string(cub3d->map[yy][xx], "0NSWE"))
+			mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->empty,
+				x * MINIMAP_SIZE, y * MINIMAP_SIZE);
+	}
+	else
+		mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->walls,
+			x * MINIMAP_SIZE, y * MINIMAP_SIZE);
+}
+
+void	debug_minimap(t_cub3d *cub3d)
+{
+	size_t	x;
+	size_t	y;
+	int		yy;
+
+	y = -1;
+	while (++y < MINIMAP_LEN)
+	{
+		yy = floor(cub3d->y) - MINIMAP_LEN_HALF + y;
+		x = -1;
+		while (++x < MINIMAP_LEN)
+			debug_minimap_parsing(cub3d, x, y, yy);
 	}
 }
