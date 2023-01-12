@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/11 17:49:10 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/12 14:53:25 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@
 # define HEIGHT 900
 # define W_HALF 800
 # define H_HALF 450
+
+/* ************************************************************************** */
+/*   wall renderer                                                            */
+/* ************************************************************************** */
+
+
+
 
 /* ************************************************************************** */
 /*   include                                                                  */
@@ -73,22 +80,18 @@ typedef struct s_cub3d
 	char	**map;		// array 2d
 	double	x;			// pos_player
 	double	y;			// pos_player
-	
-}			t_cub3d;
-
-typedef struct s_wall_renderer
-{
 	double	cube_size;
 	double	player_size;
 	double	wall_size;
 	double	fov;		// field_of_view
-	double	v_player_pos;
+	double	player_pos;
 	double	v_dir_x;	// vecteur de direction depuis le joueur
 	double	v_dir_y;
 	double	v_camera_plane_x; // doit etre perpendiculaire à dir (??)
 	double	v_camera_plane_y; //doit etre perpendiculaire à dir (??)
 	double	distance;
-}			t_wall_renderer;
+	
+}			t_cub3d;
 
 typedef unsigned char	t_rgb;
 

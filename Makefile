@@ -6,7 +6,7 @@
 #    By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 13:18:13 by frrusso           #+#    #+#              #
-#    Updated: 2023/01/11 17:48:48 by sle-huec         ###   ########.fr        #
+#    Updated: 2023/01/12 13:32:03 by sle-huec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC			+=	${addprefix useful/,\
 				debug.c}
 
 SRC			+=	${addprefix wall_renderer/,\
-				init_var_renderer.c \
+				init_renderer.c \
 				test.c}
 
 # **************************************************************************** #
