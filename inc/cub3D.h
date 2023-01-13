@@ -38,10 +38,10 @@
 # define MINIMAP_EMPTY "./img/sEmpty.xpm"
 # define MINIMAP_WALLS "./img/sWalls.xpm"
 # define MINIMAP_PLAYER "./img/sPlayer.xpm"
-# define MINIMAP_W_LEN 20
-# define MINIMAP_W_LEN_HALF 10
-# define MINIMAP_H_LEN 16
-# define MINIMAP_H_LEN_HALF 8
+# define MINIMAP_W_LEN 21
+# define MINIMAP_W_LEN_HALF 11
+# define MINIMAP_H_LEN 17
+# define MINIMAP_H_LEN_HALF 9
 
 /* ************************************************************************** */
 /*   include                                                                  */
