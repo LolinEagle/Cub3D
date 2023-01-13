@@ -41,7 +41,7 @@ int	deal_key(int key, t_cub3d *cub3d)
 int	deal_loop(t_cub3d *cub3d)
 {
 	mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->floor, 0, H_HALF);
-	debug_minimap(cub3d);
+	minimap(cub3d);
 	return (0);
 }
 

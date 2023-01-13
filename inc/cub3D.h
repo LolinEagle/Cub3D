@@ -34,12 +34,14 @@
 # define HEIGHT 900
 # define W_HALF 800
 # define H_HALF 450
-# define MINIMAP_SIZE 64
-# define MINIMAP_EMPTY "./img/sWall2.xpm"
-# define MINIMAP_WALLS "./img/sWall1.xpm"
-# define MINIMAP_PLAYER "./img/sWall3.xpm"
-# define MINIMAP_LEN 7
-# define MINIMAP_LEN_HALF 3
+# define MINIMAP_SIZE 16
+# define MINIMAP_EMPTY "./img/sEmpty.xpm"
+# define MINIMAP_WALLS "./img/sWalls.xpm"
+# define MINIMAP_PLAYER "./img/sPlayer.xpm"
+# define MINIMAP_W_LEN 20
+# define MINIMAP_W_LEN_HALF 10
+# define MINIMAP_H_LEN 16
+# define MINIMAP_H_LEN_HALF 8
 
 /* ************************************************************************** */
 /*   include                                                                  */
@@ -108,9 +110,11 @@ void	map_spawn(t_cub3d *cub3d);
 void	map_algo(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   map/minimap.c                                              1 functions   */
+/*   map/minimap.c                                              3 functions   */
 /* ************************************************************************** */
 void	*minimap_image(t_cub3d *cub3d, char *str);
+void	minimap_parsing(t_cub3d *cub3d, size_t x, size_t y, int yy);
+void	minimap(t_cub3d *cub3d);
 
 /* ************************************************************************** */
 /*   parsing/initialization_utils.c                             4 functions   */
@@ -137,12 +141,9 @@ void	parsing(int ac, char **av, char **env);
 void	initialization_var(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   useful/debug.c                                             4 functions   */
+/*   useful/debug.c                                             1 functions   */
 /* ************************************************************************** */
 void	print_cub3d(t_cub3d *cub3d);
-void	debug_minimap_full(t_cub3d *cub3d);
-void	debug_minimap_parsing(t_cub3d *cub3d, size_t x, size_t y, int yy);
-void	debug_minimap(t_cub3d *cub3d);
 
 /* ************************************************************************** */
 /*   useful/free.c                                              4 functions   */
