@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:38:01 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/12 14:58:00 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:45:07 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int ac, char **av, char **env)
 	initialization_var(&cub3d);
 	initialization(&cub3d, av[1]);
 	init_var_renderer(&cub3d);
+	init_orientation_from_player(&cub3d);
 	cub3d_loop(&cub3d);
 	return (free_return(&cub3d));
 }
