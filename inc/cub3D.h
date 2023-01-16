@@ -17,6 +17,8 @@
 /*   key                                                                      */
 /* ************************************************************************** */
 # define ESC 65307
+# define Z 122
+# define Q 113
 # define W 119
 # define A 97
 # define S 115
@@ -38,10 +40,10 @@
 # define MINIMAP_EMPTY "./img/sEmpty.xpm"
 # define MINIMAP_WALLS "./img/sWalls.xpm"
 # define MINIMAP_PLAYER "./img/sPlayer.xpm"
-# define MINIMAP_W_LEN 21
-# define MINIMAP_W_LEN_HALF 11
-# define MINIMAP_H_LEN 17
-# define MINIMAP_H_LEN_HALF 9
+# define MINIMAP_W_LEN 18
+# define MINIMAP_W_LEN_HALF 9
+# define MINIMAP_H_LEN 14
+# define MINIMAP_H_LEN_HALF 7
 
 /* ************************************************************************** */
 /*   include                                                                  */
@@ -68,6 +70,7 @@ typedef struct s_cub3d
 {
 	void	*mlx;
 	void	*win;
+	void	*win_buffer;
 	void	*north;
 	void	*south;
 	void	*west;
@@ -89,7 +92,7 @@ typedef struct s_img
 	void	*img;
 	char	*img_str;
 	int		bits;
-	int		size_line;
+	int		line;
 	int		endian;
 	t_rgb	r;
 	t_rgb	g;
@@ -119,9 +122,9 @@ void	minimap(t_cub3d *cub3d);
 /* ************************************************************************** */
 /*   parsing/initialization_utils.c                             4 functions   */
 /* ************************************************************************** */
+void	initialization_start(t_cub3d *cub3d);
 void	*cardinal_images(t_cub3d *cub3d, char *str, void *cardinal);
 t_rgb	floor_and_ceiling_color(char **str);
-void	put_pixel_image(int x, int y, t_img s);
 void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr);
 
 /* ************************************************************************** */
@@ -141,9 +144,10 @@ void	parsing(int ac, char **av, char **env);
 void	initialization_var(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   useful/debug.c                                             1 functions   */
+/*   useful/debug.c                                             2 functions   */
 /* ************************************************************************** */
 void	print_cub3d(t_cub3d *cub3d);
+void	print_t_img(t_img *img);
 
 /* ************************************************************************** */
 /*   useful/free.c                                              4 functions   */
@@ -152,6 +156,12 @@ void	free_image(t_cub3d *cub3d);
 int		free_return(t_cub3d *cub3d);
 void	free_exit(t_cub3d *cub3d, char *err);
 void	free_close(t_cub3d *cub3d, char *err, int fd);
+
+/* ************************************************************************** */
+/*   useful/put_image.c                                         2 functions   */
+/* ************************************************************************** */
+void	put_pixel_image(int x, int y, t_img s);
+void	put_image_to_image(t_cub3d *cub3d, void *img, int x, int y);
 
 /* ************************************************************************** */
 /*   useful/useful.c                                            5 functions   */

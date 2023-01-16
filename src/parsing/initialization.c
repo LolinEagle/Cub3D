@@ -114,12 +114,7 @@ void	initialization(t_cub3d *cub3d, char *av)
 	int		fd;
 	char	*str;
 
-	cub3d->mlx = mlx_init();
-	if (cub3d->mlx == NULL)
-		free_exit(cub3d, "mlx_init\n");
-	cub3d->win = mlx_new_window(cub3d->mlx, WIDTH, HEIGHT, NAME);
-	if (cub3d->win == NULL)
-		free_exit(cub3d, "mlx_new_window\n");
+	initialization_start(cub3d);
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 		free_exit(cub3d, "Can't open your map or your map doesn't exist.\n");

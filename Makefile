@@ -22,6 +22,7 @@ SRC			+=	${addprefix parsing/,\
 				parsing.c}
 SRC			+=	${addprefix useful/,\
 				free.c \
+				put_image.c \
 				useful.c \
 				debug.c}
 

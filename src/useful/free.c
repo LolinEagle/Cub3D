@@ -14,6 +14,8 @@
 
 void	free_image(t_cub3d *cub3d)
 {
+	if (cub3d->win_buffer)
+		mlx_destroy_image(cub3d->mlx, cub3d->win_buffer);
 	if (cub3d->north)
 		mlx_destroy_image(cub3d->mlx, cub3d->north);
 	if (cub3d->south)

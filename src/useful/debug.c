@@ -30,3 +30,14 @@ void	print_cub3d(t_cub3d *cub3d)
 		printf("map[%zu]=%s", i, cub3d->map[i]);
 	printf("---------------------------------------------------------------\n");
 }
+
+void	print_t_img(t_img *img)
+{
+	printf("---------------------------------------------------------------\n");
+	printf("img=%p\n", img->img);
+	printf("img_str=%p\n", img->img_str);
+	printf("bits=%i\n", img->bits);
+	printf("line=%i\n", img->line);
+	printf("endian=%i\n", img->endian);
+	printf("---------------------------------------------------------------\n");
+}

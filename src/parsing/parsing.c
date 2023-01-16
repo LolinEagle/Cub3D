@@ -45,6 +45,7 @@ void	initialization_var(t_cub3d *cub3d)
 {
 	cub3d->mlx = NULL;
 	cub3d->win = NULL;
+	cub3d->win_buffer = NULL;
 	cub3d->north = NULL;
 	cub3d->south = NULL;
 	cub3d->west = NULL;
