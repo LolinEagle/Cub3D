@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/16 17:41:26 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/16 20:11:18 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,21 @@
 # define HEIGHT 900
 # define W_HALF 800
 # define H_HALF 450
+
+/* ************************************************************************** */
+/*   position                                                                 */
+/* ************************************************************************** */
+# define NORTH 78
+# define SUD 83
+# define EAST 69
+# define WEST 87
+
+/* ************************************************************************** */
+/*   wall renderer                                                            */
+/* ************************************************************************** */
+# define PLAYER_SIZE 32
+# define WALL_SIZE 64
+# define FOV 90
 
 /* ************************************************************************** */
 /*   include                                                                  */
@@ -131,9 +146,11 @@ void	initialization_map(t_cub3d *cub3d, int fd, char *str);
 void	initialization(t_cub3d *cub3d, char *av);
 
 /* ************************************************************************** */
-/*   wall_renderer/init_renderer.c                              1 function   */
+/*   wall_renderer/init_renderer.c                              2 functions   */
 /* ************************************************************************* */
 void	init_var_renderer(t_cub3d *wall_renderer);
+void	init_orientation_from_player(t_cub3d *cub3d);
+
 
 /* ************************************************************************** */
 /*   parsing/parsing.c                                          3 functions   */
@@ -143,7 +160,7 @@ void	parsing(int ac, char **av, char **env);
 void	initialization_var(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   useful/debug.c                                             1 functions   */
+/*   useful/debug.c                                             1 function    */
 /* ************************************************************************** */
 void	print_cub3d(t_cub3d *cub3d);
 
