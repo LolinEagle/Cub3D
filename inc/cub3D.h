@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/16 20:11:18 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/17 23:52:10 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 /*   position                                                                 */
 /* ************************************************************************** */
 # define NORTH 78
-# define SUD 83
+# define SOUTH 83
 # define EAST 69
 # define WEST 87
 
@@ -48,7 +48,7 @@
 /* ************************************************************************** */
 # define PLAYER_SIZE 32
 # define WALL_SIZE 64
-# define FOV 90
+# define FOV_PLANE_WIDTH 1
 
 /* ************************************************************************** */
 /*   include                                                                  */
@@ -88,16 +88,13 @@ typedef struct s_cub3d
 	char	**map;		// array 2d
 	double	x;			// pos_player
 	double	y;			// pos_player
-	double	cube_size;
-	double	player_size;
-	double	wall_size;
-	double	fov;		// field_of_view
-	double	player_pos;
 	double	v_dir_x;	// vecteur de direction depuis le joueur
 	double	v_dir_y;
-	double	v_camera_plane_x; // doit etre perpendiculaire à dir (??)
-	double	v_camera_plane_y; //doit etre perpendiculaire à dir (??)
+	double	v_camera_plane_x;
+	double	v_camera_plane_y;
 	double	distance;
+	double time;		//time of current frame
+	double oldTime;		//time of previous frame
 	
 }			t_cub3d;
 
@@ -146,10 +143,11 @@ void	initialization_map(t_cub3d *cub3d, int fd, char *str);
 void	initialization(t_cub3d *cub3d, char *av);
 
 /* ************************************************************************** */
-/*   wall_renderer/init_renderer.c                              2 functions   */
-/* ************************************************************************* */
-void	init_var_renderer(t_cub3d *wall_renderer);
-void	init_orientation_from_player(t_cub3d *cub3d);
+/*   wall_renderer/init_renderer.c                              3 functions   */
+/* ****************************************************************************/
+void	init_var_renderer(t_cub3d *s);
+void	get_start_orientation(t_cub3d *s);
+void	init_orientation_from_player(t_cub3d *s, int orientation);
 
 
 /* ************************************************************************** */
