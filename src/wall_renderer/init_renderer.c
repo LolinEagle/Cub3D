@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:36:40 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/18 16:58:14 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:34:02 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ void	init_var_renderer(t_cub3d *s)
 	s->flag_hit_wall = 0;
 	s->side = 0;
 	s->perp_wall_dist = 0;
-	s->time = 0;
-	s->old_time = 0;
+	s->draw_start = 0;
+	s->draw_end = 0;
+	s->line_height = 0;
 	get_start_orientation(s);
 }
 
@@ -76,5 +77,29 @@ void	init_orientation_from_player(t_cub3d *s, int orientation)
 	{
 		s->v_dir_x = -1;
 		s->v_camera_plane_y = -FOV_PLANE_WIDTH;
+	}
+}
+
+void	init_first_dist(t_cub3d *s)
+{
+	if (s->ray_dir_x < 0)
+	{
+		s->step_x = -1;
+		s->first_dist_x = (s->x - s->tile_x) * s->delta_x;
+	}
+	else
+	{
+		s->step_x = 1;
+		s->first_dist_x = (s->tile_x + 1 - s->x) * s->delta_x;
+	}
+	if (s->ray_dir_y < 0)
+	{
+		s->step_y = -1;
+		s->first_dist_y = (s->y - s->tile_y) * s->first_dist_y;
+	}
+	else
+	{
+		s->step_y = 1;
+		s->first_dist_y = (s->tile_y + 1 - s->y) * s->first_dist_y;
 	}
 }

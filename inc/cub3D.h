@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/18 17:10:09 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:31:00 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,10 @@ typedef struct s_cub3d
 	int		flag_hit_wall;
 	int		side;
 	double	distance;
-	double	time;
-	double	old_time;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+
 }			t_cub3d;
 
 typedef unsigned char	t_rgb;
@@ -156,13 +158,6 @@ void	initialization_map(t_cub3d *cub3d, int fd, char *str);
 void	initialization(t_cub3d *cub3d, char *av);
 
 /* ************************************************************************** */
-/*   wall_renderer/init_renderer.c                              3 functions   */
-/* ****************************************************************************/
-void	init_var_renderer(t_cub3d *s);
-void	get_start_orientation(t_cub3d *s);
-void	init_orientation_from_player(t_cub3d *s, int orientation);
-
-/* ************************************************************************** */
 /*   parsing/parsing.c                                          3 functions   */
 /* ************************************************************************** */
 bool	iscub(char *av);
@@ -189,6 +184,28 @@ int		putstr_err(char *str);
 size_t	strlen_endl(const char *s);
 bool	char_in_string(char c, char *str);
 size_t	string_in_map(char *str1, char *str2, bool strict);
+
+/* ************************************************************************** */
+/*   wall_renderer/init_renderer.c                              4 functions   */
+/* ****************************************************************************/
+void	init_var_renderer(t_cub3d *s);
+void	get_start_orientation(t_cub3d *s);
+void	init_orientation_from_player(t_cub3d *s, int orientation);
+void	init_first_dist(t_cub3d *s);
+
+/* ************************************************************************** */
+/*   wall_renderer/raycasting.c                                 4 functions   */
+/* ****************************************************************************/
+void	cast_ray(t_cub3d *s);
+void	dda(t_cub3d *s);
+void	calculate_data(t_cub3d *s, int x);
+void	calculate_dist_on_camera(t_cub3d *s);
+
+/* ************************************************************************** */
+/*   wall_renderer/draw.c                                       3 functions   */
+/* ****************************************************************************/
+
+
 
 /* ************************************************************************** */
 /*   cub3d.c                                                    4 functions   */

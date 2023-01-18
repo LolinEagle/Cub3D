@@ -6,35 +6,11 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:16:34 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/18 17:17:19 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:04:31 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
-
-void	init_first_dist(t_cub3d *s)
-{
-	if (s->ray_dir_x < 0)
-	{
-		s->step_x = -1;
-		s->first_dist_x = (s->x - s->tile_x) * s->delta_x;
-	}
-	else
-	{
-		s->step_x = 1;
-		s->first_dist_x = (s->tile_x + 1 - s->x) * s->delta_x;
-	}
-	if (s->ray_dir_y < 0)
-	{
-		s->step_y = -1;
-		s->first_dist_y = (s->y - s->tile_y) * s->first_dist_y;
-	}
-	else
-	{
-		s->step_y = 1;
-		s->first_dist_y = (s->tile_y + 1 - s->y) * s->first_dist_y;
-	}
-}
 
 void	dda(t_cub3d *s)
 {
@@ -92,6 +68,7 @@ void	cast_ray(t_cub3d *s)
 				s->flag_hit_wall = 1;
 		}
 		calculate_dist_on_camera(s);
+		draw(s, x);
 		x++;
 	}
 }
