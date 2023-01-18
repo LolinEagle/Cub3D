@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:36:40 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/18 14:02:26 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:13:11 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,16 @@ void	init_var_renderer(t_cub3d *s)
 	s->ratio_camera_x = 0;
 	s->ray_dir_x = 0;
 	s->ray_dir_y = 0;
+	s->first_dist_x = 0;
+	s->first_dist_y = 0;
+	s->step_x = 0;
+	s->step_y = 0;
+	s->delta_x = 0;
+	s->delta_y = 0;
+	s->tile_x = 0;
+	s->tile_y = 0;
+	s->flag_hit_wall = 0;
+	s->perp_wall_dist = 0;
 	s->time = 0;
 	s->old_time = 0;
 	get_start_orientation(s);

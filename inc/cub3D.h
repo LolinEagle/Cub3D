@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/18 14:18:01 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:12:48 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,16 @@ typedef struct s_cub3d
 	double	ratio_camera_x;
 	double	ray_dir_x;
 	double	ray_dir_y;
+	double	tile_x;
+	double	tile_y;
+	double	step_x;
+	double	step_y;
+	double	first_dist_x;
+	double	first_dist_y;
+	double	delta_x;
+	double	delta_y;
+	double	perp_wall_dist;
+	int		flag_hit_wall;
 	double	distance;
 	double	time;
 	double	old_time;
