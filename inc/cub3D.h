@@ -158,9 +158,10 @@ void	free_exit(t_cub3d *cub3d, char *err);
 void	free_close(t_cub3d *cub3d, char *err, int fd);
 
 /* ************************************************************************** */
-/*   useful/put_image.c                                         2 functions   */
+/*   useful/put_image.c                                         3 functions   */
 /* ************************************************************************** */
 void	put_pixel_image(int x, int y, t_img s);
+int		put_image_pixel(t_cub3d *cub3d, void *img, t_img *dst, t_img *src);
 void	put_image_to_image(t_cub3d *cub3d, void *img, int x, int y);
 
 /* ************************************************************************** */

@@ -18,16 +18,20 @@ bool	iscub(char *av)
 	int		j;
 	char	*cub;
 
-	i = ft_strlen(av);
-	if (i < 4)
+	if (ft_strlen(av) < 4)
 		return (false);
 	cub = ".cub";
-	i -= 4;
-	j = 0;
-	while (cub[j] && av[i + j] == cub[j])
-		j++;
-	if (cub[j] == '\0')
-		return (true);
+	i = -1;
+	while (av[++i])
+	{
+		j = 0;
+		while (cub[j] && av[i + j] == cub[j])
+			j++;
+		if (cub[j] == '\0' && av[i + j] == '\0')
+			return (true);
+		if (cub[j] == '\0')
+			break ;
+	}
 	return (false);
 }
 
