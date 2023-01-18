@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/18 16:12:48 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:10:09 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ typedef struct s_cub3d
 	double	delta_y;
 	double	perp_wall_dist;
 	int		flag_hit_wall;
+	int		side;
 	double	distance;
 	double	time;
 	double	old_time;

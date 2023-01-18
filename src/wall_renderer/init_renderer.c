@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:36:40 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/18 16:13:11 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:58:14 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	init_var_renderer(t_cub3d *s)
 	s->tile_x = 0;
 	s->tile_y = 0;
 	s->flag_hit_wall = 0;
+	s->side = 0;
 	s->perp_wall_dist = 0;
 	s->time = 0;
 	s->old_time = 0;

@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:16:34 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/18 16:48:45 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:17:19 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,31 @@ void	dda(t_cub3d *s)
 	{
 		s->first_dist_x += s->delta_x;
 		s->tile_x += s->step_x;
-		// here orientation: side = 0
+		s->side = 0;
 	}
 	else
 	{
 		s->first_dist_y += s->delta_y;
 		s->tile_y += s->step_y;
-		//side = 1;
+		s->side = 1;
 	}
+}
+
+void	calculate_data(t_cub3d *s, int x)
+{
+	s->ratio_camera_x = 2 * x / (double)WIDTH - 1;
+	s->ray_dir_x = s->v_dir_x + s->v_camera_plane_x * s->ratio_camera_x;
+	s->ray_dir_y = s->v_dir_y + s->v_camera_plane_y * s->ratio_camera_x;
+	s->delta_x = fabs(1 / s->ray_dir_x);
+	s->delta_y = fabs(1 / s->ray_dir_y);
+}
+
+void	calculate_dist_on_camera(t_cub3d *s)
+{
+	if (s->side == 0)
+		s->perp_wall_dist = (s->first_dist_x - s->delta_x);
+	else
+		s->perp_wall_dist = (s->first_dist_y - s->delta_y);
 }
 
 // si ca plante rajouter 1e30 ds if else voir tuto
@@ -66,11 +83,7 @@ void	cast_ray(t_cub3d *s)
 	s->tile_y = s->y;
 	while (x < WIDTH)
 	{
-		s->ratio_camera_x = 2 * x / (double)WIDTH - 1;
-		s->ray_dir_x = s->v_dir_x + s->v_camera_plane_x * s->ratio_camera_x;
-		s->ray_dir_y = s->v_dir_y + s->v_camera_plane_y * s->ratio_camera_x;
-		s->delta_x = fabs(1 / s->ray_dir_x);
-		s->delta_y = fabs(1 / s->ray_dir_y);
+		calculate_data(s, x);
 		init_first_dist(s);
 		while (s->flag_hit_wall == 0)
 		{
@@ -78,9 +91,12 @@ void	cast_ray(t_cub3d *s)
 			if (s->map[pos_tile_x][pos_tile_y] > 0)
 				s->flag_hit_wall = 1;
 		}
+		calculate_dist_on_camera(s);
 		x++;
 	}
 }
 
 // prbleme : OU et COMMENT init tilex et tiley ??
 // probleme: exactitude des coordonnés , orientation etc
+// problem : erreur ds les types step : int et non double, à corriger?
+// manque condition pour une boucle (while (!done))
