@@ -6,7 +6,7 @@
 /*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:16:34 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/18 16:46:30 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:48:45 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,10 @@ void	cast_ray(t_cub3d *s)
 	int	pos_tile_y;
 
 	x = 0;
+	pos_tile_x = floor(s->tile_x);
+	pos_tile_y = floor(s->tile_y);
 	s->tile_x = s->x;
 	s->tile_y = s->y;
-	
 	while (x < WIDTH)
 	{
 		s->ratio_camera_x = 2 * x / (double)WIDTH - 1;
@@ -74,7 +75,7 @@ void	cast_ray(t_cub3d *s)
 		while (s->flag_hit_wall == 0)
 		{
 			dda(s);
-			if (s->map[s->tile_x][s->tile_y] > 0)
+			if (s->map[pos_tile_x][pos_tile_y] > 0)
 				s->flag_hit_wall = 1;
 		}
 		x++;
