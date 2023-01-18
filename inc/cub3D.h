@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/17 23:52:10 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/18 14:18:01 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,19 +83,21 @@ typedef struct s_cub3d
 	void	*floor;
 	size_t	width;
 	size_t	height;
-	size_t	map_width;	//plus grande longueur de le map (nombre de char)
-	size_t	map_height; // y (nombre de lignes que gnl va trouver)
-	char	**map;		// array 2d
-	double	x;			// pos_player
-	double	y;			// pos_player
-	double	v_dir_x;	// vecteur de direction depuis le joueur
+	size_t	map_width;
+	size_t	map_height;
+	char	**map;
+	double	x;
+	double	y;
+	double	v_dir_x;
 	double	v_dir_y;
 	double	v_camera_plane_x;
 	double	v_camera_plane_y;
+	double	ratio_camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
 	double	distance;
-	double time;		//time of current frame
-	double oldTime;		//time of previous frame
-	
+	double	time;
+	double	old_time;
 }			t_cub3d;
 
 typedef unsigned char	t_rgb;
@@ -148,7 +150,6 @@ void	initialization(t_cub3d *cub3d, char *av);
 void	init_var_renderer(t_cub3d *s);
 void	get_start_orientation(t_cub3d *s);
 void	init_orientation_from_player(t_cub3d *s, int orientation);
-
 
 /* ************************************************************************** */
 /*   parsing/parsing.c                                          3 functions   */
