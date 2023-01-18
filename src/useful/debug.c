@@ -18,7 +18,6 @@ void	print_cub3d(t_cub3d *cub3d)
 
 	printf("---------------------------------------------------------------\n");
 	printf("mlx=%p\t\twin=%p\n", cub3d->mlx, cub3d->win);
-	printf("width=%zu\t\theight=%zu\n", cub3d->width, cub3d->height);
 	printf("north=%p\t\tsouth=%p\n", cub3d->north, cub3d->south);
 	printf("west=%p\t\teast=%p\n", cub3d->west, cub3d->east);
 	printf("ceiling=%p\tfloor=%p\n", cub3d->ceiling, cub3d->floor);
@@ -27,7 +26,18 @@ void	print_cub3d(t_cub3d *cub3d)
 	printf("map_height=%zu\n", cub3d->map_height);
 	printf("map=%p\n", cub3d->map);
 	i = -1;
-	while (cub3d->map[++i])
+	while (cub3d->map && cub3d->map[++i])
 		printf("map[%zu]=%s", i, cub3d->map[i]);
+	printf("---------------------------------------------------------------\n");
+}
+
+void	print_t_img(t_img *img)
+{
+	printf("---------------------------------------------------------------\n");
+	printf("img=%p\n", img->img);
+	printf("img_str=%p\n", img->img_str);
+	printf("bits=%i\n", img->bits);
+	printf("line=%i\n", img->line);
+	printf("endian=%i\n", img->endian);
 	printf("---------------------------------------------------------------\n");
 }

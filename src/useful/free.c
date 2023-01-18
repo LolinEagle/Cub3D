@@ -12,12 +12,10 @@
 
 #include <cub3D.h>
 
-int	free_return(t_cub3d *cub3d)
+void	free_image(t_cub3d *cub3d)
 {
-	int	i;
-
-	if (cub3d->win)
-		mlx_destroy_window(cub3d->mlx, cub3d->win);
+	if (cub3d->win_buffer)
+		mlx_destroy_image(cub3d->mlx, cub3d->win_buffer);
 	if (cub3d->north)
 		mlx_destroy_image(cub3d->mlx, cub3d->north);
 	if (cub3d->south)
@@ -30,6 +28,21 @@ int	free_return(t_cub3d *cub3d)
 		mlx_destroy_image(cub3d->mlx, cub3d->ceiling);
 	if (cub3d->floor)
 		mlx_destroy_image(cub3d->mlx, cub3d->floor);
+	if (cub3d->empty)
+		mlx_destroy_image(cub3d->mlx, cub3d->empty);
+	if (cub3d->walls)
+		mlx_destroy_image(cub3d->mlx, cub3d->walls);
+	if (cub3d->player)
+		mlx_destroy_image(cub3d->mlx, cub3d->player);
+}
+
+int	free_return(t_cub3d *cub3d)
+{
+	int	i;
+
+	if (cub3d->win)
+		mlx_destroy_window(cub3d->mlx, cub3d->win);
+	free_image(cub3d);
 	i = -1;
 	while (cub3d->map && cub3d->map[++i])
 		free(cub3d->map[i]);

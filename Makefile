@@ -14,13 +14,15 @@ NAME		=	cub3D
 SRC			=	main.c \
 				cub3d.c
 SRC			+=	${addprefix map/,\
-				map_algo.c}
+				map_algo.c \
+				minimap.c}
 SRC			+=	${addprefix parsing/,\
 				initialization_utils.c \
 				initialization.c \
 				parsing.c}
 SRC			+=	${addprefix useful/,\
 				free.c \
+				put_image.c \
 				useful.c \
 				debug.c}
 

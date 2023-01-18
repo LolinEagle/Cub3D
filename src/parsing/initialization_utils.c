@@ -12,6 +12,19 @@
 
 #include <cub3D.h>
 
+void	initialization_start(t_cub3d *cub3d)
+{
+	cub3d->mlx = mlx_init();
+	if (cub3d->mlx == NULL)
+		free_exit(cub3d, "mlx_init\n");
+	cub3d->win = mlx_new_window(cub3d->mlx, WIDTH, HEIGHT, NAME);
+	if (cub3d->win == NULL)
+		free_exit(cub3d, "mlx_new_window\n");
+	cub3d->win_buffer = mlx_new_image(cub3d->mlx, WIDTH, HEIGHT);
+	if (cub3d->win_buffer == NULL)
+		free_exit(cub3d, "mlx_new_image\n");
+}
+
 void	*cardinal_images(t_cub3d *cub3d, char *str, void *cardinal)
 {
 	int		wh[1];
@@ -64,14 +77,6 @@ t_rgb	floor_and_ceiling_color(char **str)
 	return (0);
 }
 
-void	put_pixel_image(int x, int y, t_img s)
-{
-	s.img_str[(x * 4) + (WIDTH * 4 * y) + 0] = s.b;
-	s.img_str[(x * 4) + (WIDTH * 4 * y) + 1] = s.g;
-	s.img_str[(x * 4) + (WIDTH * 4 * y) + 2] = s.r;
-	s.img_str[(x * 4) + (WIDTH * 4 * y) + 3] = 0;
-}
-
 void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr)
 {
 	int		x;
@@ -86,16 +91,16 @@ void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr)
 	s.img = mlx_new_image(cub3d->mlx, wh[0], wh[1]);
 	if (s.img == NULL)
 		return (NULL);
-	s.img_str = mlx_get_data_addr(s.img, &s.bits, &s.size_line, &s.endian);
+	s.img_str = mlx_get_data_addr(s.img, &s.bits, &s.line, &s.endian);
 	str++;
 	s.r = floor_and_ceiling_color(&str);
 	s.g = floor_and_ceiling_color(&str);
 	s.b = floor_and_ceiling_color(&str);
 	y = -1;
-	while (++y <= wh[1])
+	while (++y < wh[1])
 	{
 		x = -1;
-		while (++x <= wh[0])
+		while (++x < wh[0])
 			put_pixel_image(x, y, s);
 	}
 	return (s.img);
