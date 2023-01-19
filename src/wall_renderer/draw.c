@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:24:22 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/19 18:08:50 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/19 18:46:07 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	init_draw(t_cub3d *s)
 	s->draw_end = s->line_height / 2 + HEIGHT / 2;
 	if (s->draw_end >= HEIGHT)
 		s->draw_end = HEIGHT - 1;
-	printf("pwd: %f, lh: %i, start=%i end=%i\n", s->perp_wall_dist, s->line_height, s->draw_start, s->draw_end);
 }
 
 void draw_ver_line(t_cub3d *s, t_img *img)
@@ -36,6 +35,7 @@ void draw_ver_line(t_cub3d *s, t_img *img)
 		h++;
 	}
 }
+
 void	draw(t_cub3d *s, t_img *img)
 {
 	int	div;
