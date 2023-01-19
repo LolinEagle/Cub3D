@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+         #
+#    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 13:18:13 by frrusso           #+#    #+#              #
-#    Updated: 2023/01/18 11:43:32 by sle-huec         ###   ########.fr        #
+#    Updated: 2023/01/19 15:13:25 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC			+=	${addprefix useful/,\
 
 SRC			+=	${addprefix wall_renderer/,\
 				init_renderer.c \
+				draw.c			\
 				raycasting.c}
 
 # **************************************************************************** #
@@ -78,7 +79,7 @@ run:${NAME}
 
 debug:${NAME}
 	clear
-	valgrind --leak-check=full --show-leak-kinds=all ./${NAME} map/map.cub
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./${NAME} map/map.cub
 
 ${OBJ_PATH}%.o:${SRC_PATH}%.c
 	@mkdir -p ${dir $@}

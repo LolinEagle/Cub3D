@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/19 11:05:18 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/19 17:51:12 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@
 /*   typedef                                                                  */
 /* ************************************************************************** */
 typedef unsigned char	t_rgb;
+struct s_img;
 
 /* ************************************************************************** */
 /*   struct                                                                   */
@@ -107,10 +108,10 @@ typedef struct s_cub3d
 	double	ratio_camera_x;
 	double	ray_dir_x;
 	double	ray_dir_y;
-	double	tile_x;
-	double	tile_y;
-	double	step_x;
-	double	step_y;
+	int		tile_x;
+	int		tile_y;
+	int		step_x;
+	int		step_y;
 	double	first_dist_x;
 	double	first_dist_y;
 	double	delta_x;
@@ -122,11 +123,10 @@ typedef struct s_cub3d
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
+	int		col_x_iterator;
 	t_rgb	color;
-
+	// t_img	*img;
 }			t_cub3d;
-
-typedef unsigned char	t_rgb;
 
 typedef struct s_img
 {
@@ -185,10 +185,11 @@ void	parsing(int ac, char **av, char **env);
 void	initialization_var(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   useful/debug.c                                             2 functions   */
+/*   useful/debug.c                                             3 functions   */
 /* ************************************************************************** */
 void	print_cub3d(t_cub3d *cub3d);
 void	print_t_img(t_img *img);
+void print_raycasting_data(t_cub3d *s);
 
 /* ************************************************************************** */
 /*   useful/free.c                                              4 functions   */
@@ -227,14 +228,13 @@ void	init_first_dist(t_cub3d *s);
 /* ****************************************************************************/
 void	cast_ray(t_cub3d *s);
 void	dda(t_cub3d *s);
-void	calculate_data(t_cub3d *s, int x);
+void	calculate_data(t_cub3d *s);
 void	calculate_dist_on_camera(t_cub3d *s);
 
 /* ************************************************************************** */
 /*   wall_renderer/draw.c                                       3 functions   */
 /* ****************************************************************************/
-
-
+void	draw(t_cub3d *s, t_img *img);
 
 /* ************************************************************************** */
 /*   cub3d.c                                                    4 functions   */
