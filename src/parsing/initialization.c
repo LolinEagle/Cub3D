@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:06:19 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/11 16:44:02 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/19 11:07:48 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	initialization_map_size_check(t_cub3d *cub3d, t_init *init)
 		free_exit(cub3d, "No spawn point.\n");
 	if (init->spawn > 1)
 		free_exit(cub3d, "Too many spawn points.\n");
-	cub3d->map = malloc(sizeof(char *) * (HEIGHT + 1));
+	cub3d->map = malloc(sizeof(char *) * (cub3d->map_height + 1));
 	if (cub3d->map == NULL)
 		free_exit(cub3d, "malloc fail\n");
 }
@@ -114,12 +114,7 @@ void	initialization(t_cub3d *cub3d, char *av)
 	int		fd;
 	char	*str;
 
-	cub3d->mlx = mlx_init();
-	if (cub3d->mlx == NULL)
-		free_exit(cub3d, "mlx_init\n");
-	cub3d->win = mlx_new_window(cub3d->mlx, WIDTH, HEIGHT, NAME);
-	if (cub3d->win == NULL)
-		free_exit(cub3d, "mlx_new_window\n");
+	initialization_start(cub3d);
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 		free_exit(cub3d, "Can't open your map or your map doesn't exist.\n");

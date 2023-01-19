@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/19 10:31:06 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/19 11:05:18 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 /*   key                                                                      */
 /* ************************************************************************** */
 # define ESC 65307
+# define Z 122
+# define Q 113
 # define W 119
 # define A 97
 # define S 115
@@ -34,6 +36,14 @@
 # define HEIGHT 900
 # define W_HALF 800
 # define H_HALF 450
+# define MINIMAP_SIZE 16
+# define MINIMAP_EMPTY "./img/sEmpty.xpm"
+# define MINIMAP_WALLS "./img/sWalls.xpm"
+# define MINIMAP_PLAYER "./img/sPlayer.xpm"
+# define MINIMAP_W_LEN 18
+# define MINIMAP_W_LEN_HALF 9
+# define MINIMAP_H_LEN 14
+# define MINIMAP_H_LEN_HALF 7
 
 /* ************************************************************************** */
 /*   position                                                                 */
@@ -75,14 +85,16 @@ typedef struct s_cub3d
 {
 	void	*mlx;
 	void	*win;
+	void	*win_buffer;
 	void	*north;
 	void	*south;
 	void	*west;
 	void	*east;
 	void	*ceiling;
 	void	*floor;
-	size_t	width;
-	size_t	height;
+	void	*empty;
+	void	*walls;
+	void	*player;
 	size_t	map_width;
 	size_t	map_height;
 	char	**map;
@@ -121,7 +133,7 @@ typedef struct s_img
 	void	*img;
 	char	*img_str;
 	int		bits;
-	int		size_line;
+	int		line;
 	int		endian;
 	t_rgb	r;
 	t_rgb	g;
@@ -142,11 +154,18 @@ void	map_spawn(t_cub3d *cub3d);
 void	map_algo(t_cub3d *cub3d);
 
 /* ************************************************************************** */
+/*   map/minimap.c                                              3 functions   */
+/* ************************************************************************** */
+void	*minimap_image(t_cub3d *cub3d, char *str);
+void	minimap_parsing(t_cub3d *cub3d, size_t x, size_t y, int yy);
+void	minimap(t_cub3d *cub3d);
+
+/* ************************************************************************** */
 /*   parsing/initialization_utils.c                             4 functions   */
 /* ************************************************************************** */
+void	initialization_start(t_cub3d *cub3d);
 void	*cardinal_images(t_cub3d *cub3d, char *str, void *cardinal);
 t_rgb	floor_and_ceiling_color(char **str);
-void	put_pixel_image(int x, int y, t_img s);
 void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr);
 
 /* ************************************************************************** */
@@ -166,16 +185,25 @@ void	parsing(int ac, char **av, char **env);
 void	initialization_var(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   useful/debug.c                                             1 function    */
+/*   useful/debug.c                                             2 functions   */
 /* ************************************************************************** */
 void	print_cub3d(t_cub3d *cub3d);
+void	print_t_img(t_img *img);
 
 /* ************************************************************************** */
-/*   useful/free.c                                              3 functions   */
+/*   useful/free.c                                              4 functions   */
 /* ************************************************************************** */
+void	free_image(t_cub3d *cub3d);
 int		free_return(t_cub3d *cub3d);
 void	free_exit(t_cub3d *cub3d, char *err);
 void	free_close(t_cub3d *cub3d, char *err, int fd);
+
+/* ************************************************************************** */
+/*   useful/put_image.c                                         3 functions   */
+/* ************************************************************************** */
+void	put_pixel_image(int x, int y, t_img s);
+int		put_image_pixel(t_cub3d *cub3d, void *img, t_img *dst, t_img *src);
+void	put_image_to_image(t_cub3d *cub3d, void *img, int x, int y);
 
 /* ************************************************************************** */
 /*   useful/useful.c                                            5 functions   */
