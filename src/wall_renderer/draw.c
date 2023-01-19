@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:24:22 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/18 18:45:55 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/19 10:37:32 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,16 @@ void	init_draw(t_cub3d *s)
 		s->draw_end = HEIGHT - 1;
 }
 
+void set_color(t_cub3d *s, t_img *rgb)
+{
+	
+}
+
 void	draw(t_cub3d *s, int x)
 {
 	init_draw(s);
+	//set_color
+	if (s->side = 1)
+		
 	
 }
