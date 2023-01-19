@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:24:22 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/19 18:46:07 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/19 20:19:42 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,39 @@ void	draw(t_cub3d *s, t_img *img)
 	img->g = 64 / div;
 	img->b = 11 / div;
 	draw_ver_line(s, img);
+}
+
+
+// double moveSpeed = frameTime * 5.0; //the constant value is in squares/second
+// double rotSpeed = frameTime * 3.0; //the constant value is in radians/second
+//   //rotate to the right
+//     if (keyDown(SDLK_RIGHT))
+//     {
+//       //both camera direction and camera plane must be rotated
+//       double oldDirX = dirX;
+//       dirX = dirX * cos(-rotSpeed) - dirY * sin(-rotSpeed);
+//       dirY = oldDirX * sin(-rotSpeed) + dirY * cos(-rotSpeed);
+//       double oldPlaneX = planeX;
+//       planeX = planeX * cos(-rotSpeed) - planeY * sin(-rotSpeed);
+//       planeY = oldPlaneX * sin(-rotSpeed) + planeY * cos(-rotSpeed);
+//     }
+//     //rotate to the left
+//     if (keyDown(SDLK_LEFT))
+//     {
+//       //both camera direction and camera plane must be rotated
+//       double oldDirX = dirX;
+//       dirX = dirX * cos(rotSpeed) - dirY * sin(rotSpeed);
+//       dirY = oldDirX * sin(rotSpeed) + dirY * cos(rotSpeed);
+//       double oldPlaneX = planeX;
+//       planeX = planeX * cos(rotSpeed) - planeY * sin(rotSpeed);
+//       planeY = oldPlaneX * sin(rotSpeed) + planeY * cos(rotSpeed);
+void rotation_left(t_cub3d *s)
+{
+	int	key;
+
+	key = 0;
+	if (key == LEFT)
+	{
+		
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/19 17:51:12 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/19 20:17:30 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,6 +235,8 @@ void	calculate_dist_on_camera(t_cub3d *s);
 /*   wall_renderer/draw.c                                       3 functions   */
 /* ****************************************************************************/
 void	draw(t_cub3d *s, t_img *img);
+void	rotation_left(t_cub3d *s);
+void	rotation_right(t_cub3d *s);
 
 /* ************************************************************************** */
 /*   cub3d.c                                                    4 functions   */

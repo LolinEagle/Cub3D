@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:59:27 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/19 17:24:55 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/19 20:16:31 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,12 @@ int	deal_key(int key, t_cub3d *cub3d)
 		cub3d->x += 1;
 	if (key == LEFT)
 		putstr_out("Rotation left\n");
+		//rotation_left(cub3d);
 	if (key == RIGHT)
 		putstr_out("Rotation right\n");
+		//rotation_right(cub3d);
 	return (0);
+
 }
 
 int	deal_loop(t_cub3d *cub3d)
