@@ -24,10 +24,10 @@ void	init_draw(t_cub3d *s)
 		s->draw_end = HEIGHT - 1;
 }
 
-void draw_ver_line(t_cub3d *s, t_img *img)
+void	draw_ver_line(t_cub3d *s, t_img *img)
 {
-	int h;
-	
+	int	h;
+
 	h = s->draw_start;
 	while (h < s->draw_end)
 	{
@@ -47,7 +47,6 @@ void	draw(t_cub3d *s, t_img *img)
 	img->b = 11 / div;
 	draw_ver_line(s, img);
 }
-
 
 // double moveSpeed = frameTime * 5.0; //the constant value is in squares/second
 // double rotSpeed = frameTime * 3.0; //the constant value is in radians/second
@@ -72,13 +71,8 @@ void	draw(t_cub3d *s, t_img *img)
 //       double oldPlaneX = planeX;
 //       planeX = planeX * cos(rotSpeed) - planeY * sin(rotSpeed);
 //       planeY = oldPlaneX * sin(rotSpeed) + planeY * cos(rotSpeed);
-void rotation_left(t_cub3d *s)
+void	rotation_left(t_cub3d *s)
 {
-	int	key;
-
-	key = 0;
-	if (key == LEFT)
-	{
-		
-	}
+	putstr_out("Rotation left\n");
+	(void)s;
 }

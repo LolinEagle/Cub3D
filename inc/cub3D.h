@@ -77,7 +77,6 @@
 /*   typedef                                                                  */
 /* ************************************************************************** */
 typedef unsigned char	t_rgb;
-struct s_img;
 
 /* ************************************************************************** */
 /*   struct                                                                   */
@@ -125,7 +124,6 @@ typedef struct s_cub3d
 	int		draw_end;
 	int		col_x_iterator;
 	t_rgb	color;
-	// t_img	*img;
 }			t_cub3d;
 
 typedef struct s_img
@@ -189,7 +187,7 @@ void	initialization_var(t_cub3d *cub3d);
 /* ************************************************************************** */
 void	print_cub3d(t_cub3d *cub3d);
 void	print_t_img(t_img *img);
-void print_raycasting_data(t_cub3d *s);
+void	print_raycasting_data(t_cub3d *s);
 
 /* ************************************************************************** */
 /*   useful/free.c                                              4 functions   */

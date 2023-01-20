@@ -12,8 +12,6 @@
 
 #include <cub3D.h>
 
-
-
 int	main(int ac, char **av, char **env)
 {
 	t_cub3d	cub3d;

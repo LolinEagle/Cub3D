@@ -42,7 +42,7 @@ void	print_t_img(t_img *img)
 	printf("---------------------------------------------------------------\n");
 }
 
-void print_raycasting_data(t_cub3d *s)
+void	print_raycasting_data(t_cub3d *s)
 {
 	printf("---------------------------------------------------------------\n");
 	printf("pos x=%f\n", s->x);

@@ -80,4 +80,3 @@ void	init_orientation_from_player(t_cub3d *s, int orientation)
 		s->v_camera_plane_y = -FOV_PLANE_WIDTH;
 	}
 }
-

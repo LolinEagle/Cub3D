@@ -12,8 +12,7 @@
 
 #include <cub3D.h>
 
-
-void init_dda(t_cub3d *s)
+void	init_dda(t_cub3d *s)
 {
 	if (s->ray_dir_x < 0)
 	{
@@ -81,16 +80,17 @@ void	calculate_dist_on_camera(t_cub3d *s)
 
 void	cast_ray(t_cub3d *s)
 {
+	int		i;
 	t_img	img;
 
-	img.img_str = mlx_get_data_addr(s->win_buffer,
-		&img.bits, &img.line, &img.endian);
+	img.img_str = mlx_get_data_addr(s->win_buffer, \
+	&img.bits, &img.line, &img.endian);
 	s->col_x_iterator = 0;
 	while (s->col_x_iterator < WIDTH)
 	{
 		calculate_data(s);
-		s-> flag_hit_wall = 0;
-		int i = 0;
+		s->flag_hit_wall = 0;
+		i = 0;
 		while (s->flag_hit_wall == 0)
 		{
 			dda(s);

@@ -31,13 +31,10 @@ int	deal_key(int key, t_cub3d *cub3d)
 	if (key == D)
 		cub3d->x += 1;
 	if (key == LEFT)
-		putstr_out("Rotation left\n");
-		//rotation_left(cub3d);
+		rotation_left(cub3d);
 	if (key == RIGHT)
-		putstr_out("Rotation right\n");
-		//rotation_right(cub3d);
+		rotation_right(cub3d);
 	return (0);
-
 }
 
 int	deal_loop(t_cub3d *cub3d)
