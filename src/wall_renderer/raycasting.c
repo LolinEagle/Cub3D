@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:16:34 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/19 18:48:13 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/20 11:58:15 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3D.h>
 
-
-void init_dda(t_cub3d *s)
+void	init_dda(t_cub3d *s)
 {
 	if (s->ray_dir_x < 0)
 	{
@@ -82,15 +81,16 @@ void	calculate_dist_on_camera(t_cub3d *s)
 void	cast_ray(t_cub3d *s)
 {
 	t_img	img;
+	int		i;
 
 	img.img_str = mlx_get_data_addr(s->win_buffer,
-		&img.bits, &img.line, &img.endian);
+			&img.bits, &img.line, &img.endian);
 	s->col_x_iterator = 0;
 	while (s->col_x_iterator < WIDTH)
 	{
 		calculate_data(s);
-		s-> flag_hit_wall = 0;
-		int i = 0;
+		s->flag_hit_wall = 0;
+		i = 0;
 		while (s->flag_hit_wall == 0)
 		{
 			dda(s);
