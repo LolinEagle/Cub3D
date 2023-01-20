@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:16:34 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/19 18:48:13 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/20 11:58:15 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,10 @@ void	cast_ray(t_cub3d *s)
 {
 	int		i;
 	t_img	img;
+	int		i;
 
-	img.img_str = mlx_get_data_addr(s->win_buffer, \
-	&img.bits, &img.line, &img.endian);
+	img.img_str = mlx_get_data_addr(s->win_buffer,
+			&img.bits, &img.line, &img.endian);
 	s->col_x_iterator = 0;
 	while (s->col_x_iterator < WIDTH)
 	{
