@@ -83,6 +83,8 @@ typedef struct s_cub3d
 	size_t	map_width;
 	size_t	map_height;
 	char	**map;
+	int		mouse_x;
+	int		mouse_y;
 	double	x;
 	double	y;
 }			t_cub3d;

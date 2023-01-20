@@ -39,6 +39,13 @@ int	deal_key(int key, t_cub3d *cub3d)
 
 int	deal_loop(t_cub3d *cub3d)
 {
+	mlx_mouse_get_pos(cub3d->mlx, cub3d->win, &cub3d->mouse_x, &cub3d->mouse_y);
+	if (cub3d->mouse_x < WIDTH / 3 && cub3d->mouse_x > 0
+		&& cub3d->mouse_y > 0 && cub3d->mouse_y < HEIGHT)
+		putstr_out("Rotation left\n");
+	if (cub3d->mouse_x > (WIDTH / 3) * 2 && cub3d->mouse_x < WIDTH
+		&& cub3d->mouse_y > 0 && cub3d->mouse_y < HEIGHT)
+		putstr_out("Rotation right\n");
 	put_image_to_image(cub3d, cub3d->ceiling, 0, 0);
 	put_image_to_image(cub3d, cub3d->floor, 0, H_HALF);
 	minimap(cub3d);
