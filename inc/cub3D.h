@@ -36,6 +36,7 @@
 # define HEIGHT 900
 # define W_HALF 800
 # define H_HALF 450
+# define TEXTURE_SIZE 64
 # define MINIMAP_SIZE 16
 # define MINIMAP_EMPTY "./img/sEmpty.xpm"
 # define MINIMAP_WALLS "./img/sWalls.xpm"
@@ -100,6 +101,8 @@ typedef struct s_cub3d
 	size_t	map_width;
 	size_t	map_height;
 	char	**map;
+	int		mouse_x;
+	int		mouse_y;
 	double	x;
 	double	y;
 	double	v_dir_x;
@@ -167,11 +170,12 @@ void	minimap_parsing(t_cub3d *cub3d, size_t x, size_t y, int yy);
 void	minimap(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   parsing/initialization_utils.c                             4 functions   */
+/*   parsing/initialization_utils.c                             5 functions   */
 /* ************************************************************************** */
 void	initialization_start(t_cub3d *cub3d);
 void	*cardinal_images(t_cub3d *cub3d, char *str, void *cardinal);
-t_rgb	floor_and_ceiling_color(char **str);
+int		floor_and_ceiling_color(char **str);
+int		floor_and_ceiling_start(char **str, t_img *s);
 void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr);
 
 /* ************************************************************************** */
