@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_renderer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:36:40 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/20 14:51:03 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:20:08 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void	init_var_renderer(t_cub3d *s)
 	s->old_dir_x = 0;
 	s->old_dir_y = 0;
 	s->old_plane_x = 0;
+	s->old_plane_y = 0;
+	s->old_x = 0;
+	s->old_y = 0;
 	s->tile_x = 0;
 	s->tile_y = 0;
 	s->flag_hit_wall = 0;
@@ -85,4 +88,14 @@ void	init_orientation_from_player(t_cub3d *s, int orientation)
 		s->v_dir_x = -1;
 		s->v_camera_plane_y = -FOV_PLANE_WIDTH;
 	}
+}
+
+void	save_init_state(t_cub3d *s)
+{
+	s->old_x = s->x;
+	s->old_y = s->y;
+	s->old_dir_x = s->v_dir_x;
+	s->old_dir_y = s->v_dir_y;
+	s->old_plane_x = s->v_camera_plane_x;
+	s->old_plane_y = s->v_camera_plane_y;
 }

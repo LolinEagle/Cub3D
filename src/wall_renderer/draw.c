@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 18:24:22 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/20 16:34:02 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:59:59 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 void	init_draw(t_cub3d *s)
 {
-	s->line_height = (int)(HEIGHT / s->perp_wall_dist);
+	if (s->perp_wall_dist == 0)
+		s->line_height = HEIGHT - 2;
+	else
+		s->line_height = (int)(HEIGHT / s->perp_wall_dist);
 	s->draw_start = -s->line_height / 2 + HEIGHT / 2;
 	if (s->draw_start < 0)
 		s->draw_start = 0;
@@ -40,7 +43,6 @@ void	draw(t_cub3d *s, t_img *img)
 {
 	int	div;
 
-	init_draw(s);
 	div = 1 + s->side;
 	img->r = 184 / div;
 	img->g = 64 / div;

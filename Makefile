@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+         #
+#    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 13:18:13 by frrusso           #+#    #+#              #
-#    Updated: 2023/01/20 15:43:07 by sle-huec         ###   ########.fr        #
+#    Updated: 2023/01/23 13:15:40 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC			+=	${addprefix useful/,\
 
 SRC			+=	${addprefix wall_renderer/,\
 				init_renderer.c \
+				rotation.c		\
 				move.c			\
 				draw.c			\
 				raycasting.c}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:16:34 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/20 16:33:35 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:54:48 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ void	dda(t_cub3d *s)
 		s->tile_y += s->step_y;
 		s->side = 1;
 	}
+	if (s->map[s->tile_y][s->tile_x] == '1')
+		s->flag_hit_wall = 1;
+	calculate_dist_on_camera(s);
 }
 
 void	calculate_dist_on_camera(t_cub3d *s)
@@ -81,7 +84,6 @@ void	calculate_dist_on_camera(t_cub3d *s)
 void	cast_ray(t_cub3d *s)
 {
 	t_img	img;
-	int		i;
 
 	img.img_str = mlx_get_data_addr(s->win_buffer,
 			&img.bits, &img.line, &img.endian);
@@ -90,15 +92,11 @@ void	cast_ray(t_cub3d *s)
 	{
 		calculate_data(s);
 		s->flag_hit_wall = 0;
-		i = 0;
 		while (s->flag_hit_wall == 0)
 		{
 			dda(s);
-			if (s->map[s->tile_y][s->tile_x] > '0')
-				s->flag_hit_wall = 1;
-			i++;
+			init_draw(s);
 		}
-		calculate_dist_on_camera(s);
 		draw(s, &img);
 		s->col_x_iterator++;
 	}
