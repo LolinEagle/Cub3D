@@ -55,9 +55,9 @@ int	floor_and_ceiling_color(char **str)
 	int		j;
 	char	nptr[4];
 
-	while (*str[0] == ' ')
+	while (**str == ' ')
 		str[0]++;
-	while (*str[0] == '0' && ft_isdigit(*str[1]))
+	while (**str == '0' && ft_isdigit(str[0][1]))
 		str[0]++;
 	i = 0;
 	while (ft_isdigit(str[0][i]))
@@ -69,7 +69,7 @@ int	floor_and_ceiling_color(char **str)
 	while (++j < i)
 		nptr[j] = str[0][j];
 	str[0] += j;
-	if (*str[0] == ',')
+	if (**str == ',')
 		str[0]++;
 	i = ft_atoi(nptr);
 	if (i <= 255)
