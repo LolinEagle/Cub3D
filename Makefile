@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: frrusso <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 13:18:13 by frrusso           #+#    #+#              #
-#    Updated: 2022/12/08 13:18:15 by frrusso          ###   ########.fr        #
+#    Updated: 2023/01/23 17:33:09 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,13 @@ SRC			+=	${addprefix useful/,\
 				put_image.c \
 				useful.c \
 				debug.c}
+
+SRC			+=	${addprefix wall_renderer/,\
+				init_renderer.c \
+				rotation.c		\
+				move.c			\
+				draw.c			\
+				raycasting.c}
 
 # **************************************************************************** #
 #    Compiler                                                                  #
@@ -70,11 +77,11 @@ bonus:${NAME}
 
 run:${NAME}
 	clear
-	./${NAME} map/map.cub
+	./${NAME} map/subject2.cub
 
 debug:${NAME}
 	clear
-	valgrind --leak-check=full --show-leak-kinds=all ./${NAME} map/map.cub
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./${NAME} map/subject2.cub
 
 ${OBJ_PATH}%.o:${SRC_PATH}%.c
 	@mkdir -p ${dir $@}

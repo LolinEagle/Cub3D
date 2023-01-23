@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frrusso <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2022/12/08 15:51:48 by frrusso          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:21:46 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,23 @@
 # define MINIMAP_W_LEN_HALF 9
 # define MINIMAP_H_LEN 14
 # define MINIMAP_H_LEN_HALF 7
+
+/* ************************************************************************** */
+/*   position                                                                 */
+/* ************************************************************************** */
+# define NORTH 78
+# define SOUTH 83
+# define EAST 69
+# define WEST 87
+
+/* ************************************************************************** */
+/*   wall renderer                                                            */
+/* ************************************************************************** */
+# define PLAYER_SIZE 32
+# define WALL_SIZE 64
+# define FOV_PLANE_WIDTH 0.66
+# define MOVE_SPEED 0.1
+# define ROT_SPEED 0.05
 
 /* ************************************************************************** */
 /*   include                                                                  */
@@ -88,6 +105,36 @@ typedef struct s_cub3d
 	int		mouse_y;
 	double	x;
 	double	y;
+	double	v_dir_x;
+	double	v_dir_y;
+	double	old_x;
+	double	old_y;
+	double	old_dir_x;
+	double	old_dir_y;
+	double	old_plane_x;
+	double	old_plane_y;
+	double	v_camera_plane_x;
+	double	v_camera_plane_y;
+	double	ratio_camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	int		tile_x;
+	int		tile_y;
+	int		step_x;
+	int		step_y;
+	double	first_dist_x;
+	double	first_dist_y;
+	double	delta_x;
+	double	delta_y;
+	double	perp_wall_dist;
+	int		flag_hit_wall;
+	int		side;
+	double	distance;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	int		col_x_iterator;
+	t_rgb	color;
 }			t_cub3d;
 
 typedef struct s_img
@@ -148,10 +195,11 @@ void	parsing(int ac, char **av, char **env);
 void	initialization_var(t_cub3d *cub3d);
 
 /* ************************************************************************** */
-/*   useful/debug.c                                             2 functions   */
+/*   useful/debug.c                                             3 functions   */
 /* ************************************************************************** */
 void	print_cub3d(t_cub3d *cub3d);
 void	print_t_img(t_img *img);
+void	print_raycasting_data(t_cub3d *s);
 
 /* ************************************************************************** */
 /*   useful/free.c                                              4 functions   */
@@ -176,6 +224,43 @@ int		putstr_err(char *str);
 size_t	strlen_endl(const char *s);
 bool	char_in_string(char c, char *str);
 size_t	string_in_map(char *str1, char *str2, bool strict);
+
+/* ************************************************************************** */
+/*   wall_renderer/init_renderer.c                              5 functions   */
+/* ****************************************************************************/
+void	init_var_renderer(t_cub3d *s);
+void	init_dda_var(t_cub3d *s);
+void	get_start_orientation(t_cub3d *s);
+void	init_orientation_from_player(t_cub3d *s, int orientation);
+void	save_init_state(t_cub3d *s);
+
+/* ************************************************************************** */
+/*   wall_renderer/raycasting.c                                 4 functions   */
+/* ****************************************************************************/
+void	cast_ray(t_cub3d *s);
+void	dda(t_cub3d *s);
+void	calculate_data(t_cub3d *s);
+void	calculate_dist_on_camera(t_cub3d *s);
+
+/* ************************************************************************** */
+/*   wall_renderer/draw.c                                       3 functions   */
+/* ****************************************************************************/
+void	init_draw(t_cub3d *s);
+void	draw(t_cub3d *s, t_img *img);
+
+/* ************************************************************************** */
+/*   wall_renderer/move.c                                       4 functions   */
+/* ****************************************************************************/
+void	move_front(t_cub3d *s);
+void	move_back(t_cub3d *s);
+void	move_right(t_cub3d *s);
+void	move_left(t_cub3d *s);
+
+/* ************************************************************************** */
+/*   wall_renderer/rotation.c                                   2 functions   */
+/* ****************************************************************************/
+void	rotation_right(t_cub3d *s);
+void	rotation_left(t_cub3d *s);
 
 /* ************************************************************************** */
 /*   cub3d.c                                                    4 functions   */

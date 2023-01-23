@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frrusso <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:38:01 by frrusso           #+#    #+#             */
-/*   Updated: 2022/12/08 13:38:03 by frrusso          ###   ########.fr       */
+/*   Updated: 2023/01/23 13:17:10 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int ac, char **av, char **env)
 	parsing(ac, av, env);
 	initialization_var(&cub3d);
 	initialization(&cub3d, av[1]);
+	init_var_renderer(&cub3d);
 	cub3d_loop(&cub3d);
 	return (free_return(&cub3d));
 }

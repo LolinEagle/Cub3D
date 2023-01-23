@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frrusso <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:59:27 by frrusso           #+#    #+#             */
-/*   Updated: 2022/12/12 15:59:29 by frrusso          ###   ########.fr       */
+/*   Updated: 2023/01/23 18:32:48 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ int	deal_key(int key, t_cub3d *cub3d)
 	if (key == ESC)
 		mlx_loop_end(cub3d->mlx);
 	if (key == W || key == UP)
-		cub3d->y -= 1;
+		move_front(cub3d);
 	if (key == A)
-		cub3d->x -= 1;
+		move_left(cub3d);
 	if (key == S || key == DOWN)
-		cub3d->y += 1;
+		move_back(cub3d);
 	if (key == D)
-		cub3d->x += 1;
+		move_right(cub3d);
 	if (key == LEFT)
-		putstr_out("Rotation left\n");
+		rotation_left(cub3d);
 	if (key == RIGHT)
-		putstr_out("Rotation right\n");
+		rotation_right(cub3d);
 	return (0);
 }
 
@@ -48,6 +48,7 @@ int	deal_loop(t_cub3d *cub3d)
 		putstr_out("Rotation right\n");
 	put_image_to_image(cub3d, cub3d->ceiling, 0, 0);
 	put_image_to_image(cub3d, cub3d->floor, 0, H_HALF);
+	cast_ray(cub3d);
 	minimap(cub3d);
 	mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->win_buffer, 0, 0);
 	return (0);
