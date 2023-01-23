@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:16:34 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/23 14:54:48 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/23 19:07:47 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_dda(t_cub3d *s)
 {
-	if (s->ray_dir_x < 0)
+	if (s->ray_dir_x < 0.0000001)
 	{
 		s->step_x = -1;
 		s->first_dist_x = (s->x - s->tile_x) * s->delta_x;
@@ -24,15 +24,15 @@ void	init_dda(t_cub3d *s)
 		s->step_x = 1;
 		s->first_dist_x = (s->tile_x + 1 - s->x) * s->delta_x;
 	}
-	if (s->ray_dir_y < 0)
+	if (s->ray_dir_y < 0.0000001)
 	{
 		s->step_y = -1;
-		s->first_dist_y = (s->y - s->tile_y) * s->first_dist_y;
+		s->first_dist_y = (s->y - s->tile_y) * s->delta_y;
 	}
 	else
 	{
 		s->step_y = 1;
-		s->first_dist_y = (s->tile_y + 1 - s->y) * s->first_dist_y;
+		s->first_dist_y = (s->tile_y + 1 - s->y) * s->delta_y;
 	}
 }
 
