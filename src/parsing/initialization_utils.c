@@ -37,7 +37,7 @@ void	*cardinal_images(t_cub3d *cub3d, char *str, void *cardinal)
 		str[ft_strlen(str) - 1] = '\0';
 	if (cardinal != NULL)
 		mlx_destroy_image(cub3d->mlx, cardinal);
-	wh[0] = 128;
+	wh[0] = TEXTURE_SIZE;
 	ret = mlx_xpm_file_to_image(cub3d->mlx, str, &wh[0], &wh[0]);
 	if (ret == NULL)
 	{
@@ -49,7 +49,7 @@ void	*cardinal_images(t_cub3d *cub3d, char *str, void *cardinal)
 	return (ret);
 }
 
-t_rgb	floor_and_ceiling_color(char **str)
+int	floor_and_ceiling_color(char **str)
 {
 	int		i;
 	int		j;
@@ -57,13 +57,13 @@ t_rgb	floor_and_ceiling_color(char **str)
 
 	while (*str[0] == ' ')
 		str[0]++;
-	while (*str[0] == '0' && ft_isdigit(*str[0] + 1))
+	while (*str[0] == '0' && ft_isdigit(*str[1]))
 		str[0]++;
 	i = 0;
 	while (ft_isdigit(str[0][i]))
 		i++;
-	if (i > 3)
-		return (0);
+	if (i == 0 || i > 3)
+		return (-1);
 	ft_bzero(nptr, 4);
 	j = -1;
 	while (++j < i)
@@ -74,6 +74,25 @@ t_rgb	floor_and_ceiling_color(char **str)
 	i = ft_atoi(nptr);
 	if (i <= 255)
 		return (i);
+	return (-1);
+}
+
+int	floor_and_ceiling_start(char **str, t_img *s)
+{
+	int		rgb[3];
+
+	str[0]++;
+	rgb[0] = floor_and_ceiling_color(str);
+	rgb[1] = floor_and_ceiling_color(str);
+	rgb[2] = floor_and_ceiling_color(str);
+	if (rgb[0] == -1 || rgb[1] == -1 || rgb[2] == -1)
+	{
+		putstr_out("Can't use colors.\n");
+		return (1);
+	}
+	s->r = rgb[0];
+	s->g = rgb[1];
+	s->b = rgb[2];
 	return (0);
 }
 
@@ -84,6 +103,8 @@ void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr)
 	int		wh[2];
 	t_img	s;
 
+	if (floor_and_ceiling_start(&str, &s))
+		return (NULL);
 	if (ptr != NULL)
 		mlx_destroy_image(cub3d->mlx, ptr);
 	wh[0] = WIDTH;
@@ -92,10 +113,6 @@ void	*floor_and_ceiling(t_cub3d *cub3d, char *str, void *ptr)
 	if (s.img == NULL)
 		return (NULL);
 	s.img_str = mlx_get_data_addr(s.img, &s.bits, &s.line, &s.endian);
-	str++;
-	s.r = floor_and_ceiling_color(&str);
-	s.g = floor_and_ceiling_color(&str);
-	s.b = floor_and_ceiling_color(&str);
 	y = -1;
 	while (++y < wh[1])
 	{

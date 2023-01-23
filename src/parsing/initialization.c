@@ -117,7 +117,7 @@ void	initialization(t_cub3d *cub3d, char *av)
 	initialization_start(cub3d);
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
-		free_exit(cub3d, "Can't open your map or your map doesn't exist.\n");
+		free_exit(cub3d, "Can't open your file or your file doesn't exist.\n");
 	str = initialization_file(cub3d, fd, NULL);
 	initialization_map_size(cub3d, fd, str);
 	fd = open(av, O_RDONLY);
