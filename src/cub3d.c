@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:59:27 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/23 18:32:48 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/24 16:05:15 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	deal_loop(t_cub3d *cub3d)
 void	cub3d_loop(t_cub3d *cub3d)
 {
 	mlx_hook(cub3d->win, 17, 0, deal_close, cub3d->mlx);
-	mlx_key_hook(cub3d->win, deal_key, cub3d);
+	mlx_hook(cub3d->win, 2, (1L << 0), deal_key, cub3d);
 	mlx_loop_hook(cub3d->mlx, deal_loop, cub3d);
 	mlx_loop(cub3d->mlx);
 }
