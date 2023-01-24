@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   rotation.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 12:50:16 by sam               #+#    #+#             */
-/*   Updated: 2023/01/23 12:52:06 by sam              ###   ########.fr       */
+/*   Created: 2023/01/24 17:04:10 by sle-huec          #+#    #+#             */
+/*   Updated: 2023/01/24 17:04:17 by sle-huec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// header a refaire
 #include <cub3D.h>
 
 void	rotation_left(t_cub3d *s)
