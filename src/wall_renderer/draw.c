@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <cub3D.h>
-#include <stdio.h>
 
 void	init_draw(t_cub3d *s)
 {
@@ -27,25 +26,35 @@ void	init_draw(t_cub3d *s)
 		s->draw_end = HEIGHT - 1;
 }
 
-void	draw_ver_line(t_cub3d *s, t_img *img)
+void	draw_ver_line(t_cub3d *s, t_img *dst, t_img src)
 {
-	int	h;
+	int		h;
 
 	h = s->draw_start;
 	while (h < s->draw_end)
 	{
-		put_pixel_image(s->col_x_iterator, h, *img);
+		dst->img_str[(s->col_x_iterator * 4) + (WIDTH * 4 * h) + 0] = \
+		src.img_str[(0 * 4) + (TEXTURE_SIZE * 4 * 0) + 0];
+		dst->img_str[(s->col_x_iterator * 4) + (WIDTH * 4 * h) + 1] = \
+		src.img_str[(0 * 4) + (TEXTURE_SIZE * 4 * 0) + 1];
+		dst->img_str[(s->col_x_iterator * 4) + (WIDTH * 4 * h) + 2] = \
+		src.img_str[(0 * 4) + (TEXTURE_SIZE * 4 * 0) + 2];
 		h++;
 	}
+	(void)src;
 }
 
 void	draw(t_cub3d *s, t_img *img)
 {
-	int	div;
+	t_img	src;
 
-	div = 1 + s->side;
-	img->r = 184 / div;
-	img->g = 64 / div;
-	img->b = 11 / div;
-	draw_ver_line(s, img);
+	// s->side = 0 (W, E)
+	// s->side = 1 (N, S)
+	if (s->side == 0)
+		src.img_str = mlx_get_data_addr(s->west, \
+			&src.bits, &src.line, &src.endian);
+	else// if (s->side == 1)
+		src.img_str = mlx_get_data_addr(s->north, \
+			&src.bits, &src.line, &src.endian);
+	draw_ver_line(s, img, src);
 }
