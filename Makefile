@@ -25,7 +25,6 @@ SRC			+=	${addprefix useful/,\
 				put_image.c \
 				useful.c \
 				debug.c}
-
 SRC			+=	${addprefix wall_renderer/,\
 				init_renderer.c \
 				rotation.c		\
@@ -81,7 +80,8 @@ run:${NAME}
 
 debug:${NAME}
 	clear
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./${NAME} map/subject2.cub
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes \
+	./${NAME} map/subject2.cub
 
 ${OBJ_PATH}%.o:${SRC_PATH}%.c
 	@mkdir -p ${dir $@}
