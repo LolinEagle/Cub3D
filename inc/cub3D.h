@@ -98,6 +98,7 @@ typedef struct s_cub3d
 	void	*empty;
 	void	*walls;
 	void	*player;
+	bool	bonus;
 	size_t	map_width;
 	size_t	map_height;
 	char	**map;

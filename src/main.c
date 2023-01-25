@@ -20,6 +20,10 @@ int	main(int ac, char **av, char **env)
 	initialization_var(&cub3d);
 	initialization(&cub3d, av[1]);
 	init_var_renderer(&cub3d);
+	if (av[0][ft_strlen(av[0]) - 1] == 's')
+		cub3d.bonus = true;
+	else
+		cub3d.bonus = false;
 	cub3d_loop(&cub3d);
 	return (free_return(&cub3d));
 }

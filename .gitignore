@@ -53,6 +53,7 @@ dkms.conf
 
 # My executables
 cub3D
+cub3D_bonus
 
 # Code
 .vscode

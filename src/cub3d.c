@@ -39,17 +39,27 @@ int	deal_key(int key, t_cub3d *cub3d)
 
 int	deal_loop(t_cub3d *cub3d)
 {
-	mlx_mouse_get_pos(cub3d->mlx, cub3d->win, &cub3d->mouse_x, &cub3d->mouse_y);
-	if (cub3d->mouse_x < WIDTH / 3 && cub3d->mouse_x > 0
-		&& cub3d->mouse_y > 0 && cub3d->mouse_y < HEIGHT)
-		rotation_left(cub3d);
-	if (cub3d->mouse_x > (WIDTH / 3) * 2 && cub3d->mouse_x < WIDTH
-		&& cub3d->mouse_y > 0 && cub3d->mouse_y < HEIGHT)
-		rotation_right(cub3d);
-	put_image_to_image(cub3d, cub3d->ceiling, 0, 0);
-	put_image_to_image(cub3d, cub3d->floor, 0, H_HALF);
-	cast_ray(cub3d);
-	minimap(cub3d);
+	if (cub3d->bonus)
+	{
+		mlx_mouse_get_pos(cub3d->mlx, cub3d->win, \
+			&cub3d->mouse_x, &cub3d->mouse_y);
+		if (cub3d->mouse_x < WIDTH / 3 && cub3d->mouse_x > 0
+			&& cub3d->mouse_y > 0 && cub3d->mouse_y < HEIGHT)
+			rotation_left(cub3d);
+		if (cub3d->mouse_x > (WIDTH / 3) * 2 && cub3d->mouse_x < WIDTH
+			&& cub3d->mouse_y > 0 && cub3d->mouse_y < HEIGHT)
+			rotation_right(cub3d);
+		put_image_to_image(cub3d, cub3d->ceiling, 0, 0);
+		put_image_to_image(cub3d, cub3d->floor, 0, H_HALF);
+		cast_ray(cub3d);
+		minimap(cub3d);
+	}
+	else
+	{
+		put_image_to_image(cub3d, cub3d->ceiling, 0, 0);
+		put_image_to_image(cub3d, cub3d->floor, 0, H_HALF);
+		cast_ray(cub3d);
+	}
 	mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->win_buffer, 0, 0);
 	return (0);
 }

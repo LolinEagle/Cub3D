@@ -67,12 +67,15 @@ clean:
 fclean:clean
 	@make -sC _libft fclean
 	@make -sC _minilibx-linux clean
-	${RM} ${NAME}
+	${RM} ${NAME} cub3D_bonus
 
 re:fclean
 	make
 
-bonus:${NAME}
+bonus:${OBJ}
+	@make -sC _libft
+	@make -sC _minilibx-linux
+	${CC} ${CFLAG} ${OBJ} ${LIBDIR} ${LIBINC} -o cub3D_bonus
 
 run:${NAME}
 	clear
