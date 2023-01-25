@@ -2,8 +2,8 @@ NO ./img/sWall1.xpm
 SO ./img/sWall2.xpm
 WE ./img/sWall3.xpm
 EA ./img/sWall4.xpm
-F 220,100,0
-C 225,30,0
+F 134,99,61
+C 56,50,100
 111111
 100101
 101001
