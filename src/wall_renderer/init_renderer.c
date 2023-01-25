@@ -70,22 +70,22 @@ void	init_orientation_from_player(t_cub3d *s, int orientation)
 {
 	if (orientation == NORTH)
 	{
-		s->v_dir_y = -1;
+		s->v_dir_y = -1.001;
 		s->v_camera_plane_x = FOV_PLANE_WIDTH;
 	}
 	if (orientation == SOUTH)
 	{
-		s->v_dir_y = 1;
+		s->v_dir_y = 1.001;
 		s->v_camera_plane_x = -FOV_PLANE_WIDTH;
 	}
 	if (orientation == EAST)
 	{
-		s->v_dir_x = 1;
+		s->v_dir_x = 1.001;
 		s->v_camera_plane_y = FOV_PLANE_WIDTH;
 	}
 	if (orientation == WEST)
 	{
-		s->v_dir_x = -1;
+		s->v_dir_x = -1.001;
 		s->v_camera_plane_y = -FOV_PLANE_WIDTH;
 	}
 }

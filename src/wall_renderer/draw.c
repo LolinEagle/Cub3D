@@ -55,13 +55,13 @@ void	draw(t_cub3d *s, t_img *img)
 	t_img	src;
 	double	wall_hit_point;
 
-	if (s->side == 1)
+	if (s->side == 1 && s->ray_dir_y < 0)
 		src.img_str = mlx_get_data_addr(s->north, \
 			&src.bits, &src.line, &src.endian);
-	else if (s->side == 1)
+	else if (s->side == 1 && s->ray_dir_y > 0)
 		src.img_str = mlx_get_data_addr(s->south, \
 			&src.bits, &src.line, &src.endian);
-	else if (s->side == 0)
+	else if (s->side == 0 && s->ray_dir_x < 0)
 		src.img_str = mlx_get_data_addr(s->west, \
 			&src.bits, &src.line, &src.endian);
 	else

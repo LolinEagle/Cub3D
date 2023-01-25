@@ -61,7 +61,7 @@
 # define WALL_SIZE 64
 # define FOV_PLANE_WIDTH 0.66
 # define MOVE_SPEED 0.1
-# define ROT_SPEED 0.05
+# define ROT_SPEED 0.1
 
 /* ************************************************************************** */
 /*   include                                                                  */
