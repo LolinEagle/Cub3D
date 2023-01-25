@@ -131,6 +131,8 @@ typedef struct s_cub3d
 	int		side;
 	double	distance;
 	int		line_height;
+	int		draw_start_all;
+	int		draw_end_all;
 	int		draw_start;
 	int		draw_end;
 	int		col_x_iterator;
