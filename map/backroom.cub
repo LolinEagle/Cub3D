@@ -2,8 +2,10 @@ NO ./img/sBackroom.xpm
 SO ./img/sBackroom.xpm
 WE ./img/sBackroom.xpm
 EA ./img/sBackroom.xpm
-C 80,80,40
-F 70,70,35
+
+C 209,210,157
+F 191,158,76
+
 11111111111111111
 10100010000000001
 10001000001011101
