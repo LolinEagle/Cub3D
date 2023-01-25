@@ -6,7 +6,7 @@
 #    By: sam <sam@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/08 13:18:13 by frrusso           #+#    #+#              #
-#    Updated: 2023/01/23 17:33:09 by sam              ###   ########.fr        #
+#    Updated: 2023/01/25 22:30:47 by sam              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC			+=	${addprefix useful/,\
 				useful.c \
 				debug.c}
 SRC			+=	${addprefix wall_renderer/,\
+				key.c			\
 				init_renderer.c \
 				rotation.c		\
 				move.c			\

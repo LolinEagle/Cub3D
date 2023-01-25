@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_renderer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sle-huec <sle-huec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:36:40 by sle-huec          #+#    #+#             */
-/*   Updated: 2023/01/24 17:03:33 by sle-huec         ###   ########.fr       */
+/*   Updated: 2023/01/25 22:53:35 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ void	init_var_renderer(t_cub3d *s)
 	s->draw_end = 0;
 	s->line_height = 0;
 	s->col_x_iterator = 0;
+	s->key_up = 0;
+	s->key_down = 0;
+	s->key_left = 0;
+	s->key_right = 0;
 	init_dda_var(s);
 	get_start_orientation(s);
 }

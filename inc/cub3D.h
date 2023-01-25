@@ -6,7 +6,7 @@
 /*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 15:51:37 by frrusso           #+#    #+#             */
-/*   Updated: 2023/01/23 16:21:46 by sam              ###   ########.fr       */
+/*   Updated: 2023/01/25 22:51:37 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,10 @@ typedef struct s_cub3d
 	int		draw_end;
 	int		col_x_iterator;
 	t_rgb	color;
+	int		key_up;
+	int		key_down;
+	int		key_left;
+	int		key_right;
 }			t_cub3d;
 
 typedef struct s_img
@@ -264,6 +268,12 @@ void	move_left(t_cub3d *s);
 /* ****************************************************************************/
 void	rotation_right(t_cub3d *s);
 void	rotation_left(t_cub3d *s);
+
+/* ************************************************************************** */
+/*   key.c                                                      2 functions   */
+/* ************************************************************************** */
+int		key_press(int key, t_cub3d *s);
+int		key_release(int key, t_cub3d *s);
 
 /* ************************************************************************** */
 /*   cub3d.c                                                    4 functions   */
