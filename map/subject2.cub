@@ -1,7 +1,7 @@
-NO ./img/sWall1.xpm
-SO ./img/sWall2.xpm
-WE ./img/sWall3.xpm
-EA ./img/sWall4.xpm
+NO ./img/sIdSoftware.xpm
+SO ./img/sTeam.xpm
+WE ./img/sWall1.xpm
+EA ./img/sWall2.xpm
 F 85,85,85
 C  135,206,235
         1111111111111111111111111

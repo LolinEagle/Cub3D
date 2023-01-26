@@ -1,7 +1,7 @@
-NO ./img/sWall1.xpm
+NO ./img/sWall2.xpm
 SO ./img/sWall2.xpm
-WE ./img/sWall3.xpm
-EA ./img/sWall4.xpm
+WE ./img/sWall2.xpm
+EA ./img/sWall2.xpm
 C 135,206,235
 F 155,163,156
 1111111111111
