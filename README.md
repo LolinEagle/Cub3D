@@ -1,6 +1,4 @@
 # Cub3D
-42 school project
-
 This project is inspired by the Wolfeinstein 3D game, considered the first FPS
 ever developed. It will allow us to explore the technique of ray-casting.
 Our goal is to make a dynamic view within a maze, in which we must find our way.
